@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ConvocaApp.Models.PlacesModel>
+
+@{
+    ViewData["Title"] = "Index";
+    //Layout = "~/Views/Places/";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cellphone)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cellphone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.Id /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { item.Id/* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { item.Id/* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

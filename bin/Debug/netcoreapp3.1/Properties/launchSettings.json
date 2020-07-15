@@ -1,0 +1,20 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:58952",
+      "sslPort": 44304
+    }
+  },
+  "profiles": {
+    "ConvocaApp": {
+      "commandName": "IISExpress",
+      "workingDirectory": "C:\\Users\\Administrador\\OneDrive - Chr Hansen\\ConvocaApp\\ConvocaApp\\ConvocaApp",
+      "launchBrowser": true,
+      "sqlDebugging": false,
+      "nativeDebugging": false,
+      "use64Bit": true
+    }
+  }
+}

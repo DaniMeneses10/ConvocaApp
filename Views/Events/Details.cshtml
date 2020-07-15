@@ -1,0 +1,73 @@
+﻿@model ConvocaApp.Models.EventsModel
+
+@{
+    ViewData["Title"] = "Events Details";
+    //Layout = "~/Views/Events";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EventsModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.category)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sex)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sex)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.reserve)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.reserve)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.hour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.hour)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cost)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cost)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.paymment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.paymment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.place_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.place_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sport_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sport_id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

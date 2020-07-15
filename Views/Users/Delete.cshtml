@@ -1,0 +1,75 @@
+﻿@model ConvocaApp.Models.UsersModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Estas seguro que quieres borrar este usuario?</h1>
+<div>    
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nombre
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class="col-sm-2">
+            Edad
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.age)
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class="col-sm-2">
+            Sexo
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.sex)
+        </dd>
+        <dt class="col-sm-2">
+            Dirección
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.address)
+        </dd>
+        @*<dd class="col-sm-10">
+            @Html.DisplayFor(model => model.addressStreet)
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.addressNumber)
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.addressNumber2)
+        </dd>*@
+        <dt class="col-sm-2">
+            Contraseña
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.password)
+        </dd>
+        <dt class="col-sm-2">
+            Teléfono
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cellphone)
+        </dd>
+        <dt class="col-sm-2">
+            Ciudad
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.city)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Borrar Usuario" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresa a la lista</a>
+    </form>
+</div>

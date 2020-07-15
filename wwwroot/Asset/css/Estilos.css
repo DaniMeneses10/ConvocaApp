@@ -1,0 +1,43 @@
+﻿html, body {
+    padding:0px;
+    margin:0px;
+    font-size:12px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+nav{
+    width: 100px;
+    height: 60px;
+    display:flex;
+    background-color: palevioletred;
+    padding:10px;
+    color:white;
+    justify-content:space-between;
+    align-items: center;
+}
+
+nav ul{
+    display: flex; 
+    justify-content:space-between;
+}
+
+nav li{
+    padding-right:30px;
+    list-style:none;
+    justify-content:space-between;
+
+}
+
+nav li a {
+    color: black;
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+nav li a:hover{
+    color:red;
+}
+
+nav .logo_image{
+    width: 15px;
+}

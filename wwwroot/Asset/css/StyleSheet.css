@@ -1,0 +1,39 @@
+﻿ody {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    display: flex;
+    background-color: palevioletred;
+    padding: 10px;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav li {
+        padding-right: 30px;
+        list-style: none;
+        justify-content: space-between;
+    }
+
+        nav li a {
+            color: white;
+            text-decoration: none;
+        }
+
+            nav li a:hover {
+                color: red;
+            }
+
+    nav logo_image {
+        width: 15px;
+    }

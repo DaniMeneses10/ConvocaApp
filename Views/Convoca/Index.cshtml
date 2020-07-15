@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Portada de Aplicación";
+    Layout = "_StartApp";
+
+}
+
+    <body>
+        <h1>Tu!, Estas convocado</h1>
+        <nav>
+            <div class="logo_image">
+                <img src="~/asset/images/logo.jpg" alt="alternate text" />
+            </div>
+        </nav>
+        <div class="nav_options">
+        
+            <div class="Usuarios">
+                <h2><a href="https://localhost:44304/users">Usuarios</a></h2>
+            </div>
+            <div class="Deportes">
+                <h2><a href="https://localhost:44304/sports">Deportes</a></h2>
+            </div>
+            <div class="Eventos">
+                <h2><a href="https://localhost:44304/events">Eventos</a></h2>
+            </div>
+            <div class="Lugares">
+                <h2><a href="https://localhost:44304/places">Lugares</a></h2>
+            </div>
+        
+        </div>
+        
+        <style>
+            body {
+                padding: 10px;
+                margin: 10px;
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+                justify-content:center;
+            }
+            
+
+            nav {
+                display: flex;                
+                padding: 20px;
+                color: white;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+            }            
+
+            .nav_options {
+                height: 20px;
+                padding: 20px;
+                display: flex;
+                text-align:center;
+                justify-content:center;
+            }
+                .Usuarios{
+                    padding:30px;
+                }
+                .Deportes{
+                    padding:30px;
+                }
+                .Eventos{
+                    padding:30px;
+                }
+                .Lugares{
+                    padding:30px;
+                }
+        </style>
+
+        @*<p>@Viewbag.FechaActual</p>*@
+
+        <script src="asset/scripts/scrip.js"></script>
+    </body>

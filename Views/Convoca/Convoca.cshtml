@@ -1,0 +1,13 @@
+﻿@model ConvocaModel
+
+@{
+    ViewData["Title"] = "Portada de Aplicación";
+    Layout = "_StartApp";
+
+}
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+Deporte: @Model.Deporte <br />
+Lugar: @Model.Lugar <br />
+Jugadores: @Model.Jugadores <br />
