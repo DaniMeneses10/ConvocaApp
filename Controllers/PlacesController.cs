@@ -25,8 +25,8 @@ namespace ConvocaApp.Controllers
         // GET: Places
         public IActionResult Index()
         {
-            var placesModel = _context.Lugares.ToList<PlacesModel>();
-            return View(placesModel);
+            var lugares = _context.Lugares.ToList<PlacesModel>();
+            return View(lugares);
         }
 
         // GET: Places/Details/5
@@ -45,18 +45,32 @@ namespace ConvocaApp.Controllers
         {
             return View();
         }
+
+
         
         // POST: Places/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(PlacesModel placesModel)
+        public IActionResult Create(PlacesViewModel lugar)
         {
             try
             {
-                // TODO: Add insert logic here
-                _context.Lugares.Add(placesModel);
+                var lugarDB = new PlacesModel();
+
+                lugarDB.name = lugar.name;
+                lugarDB.email = lugar.email;
+                lugarDB.cellphone = lugar.cellphone;
+                lugarDB.Id = lugar.Id;
+                lugarDB.addressStreet = lugar.addressStreet;
+                lugarDB.addressNumber1 = lugar.addressNumber1;
+                lugarDB.addressNumber2 = lugar.addressNumber2;
+                lugarDB.addressNumber3 = lugar.addressNumber3;
+                lugarDB.addressLocation = lugar.addressLocation;
+                lugarDB.address = lugar.addressStreet + " " + lugar.addressNumber1 + " # " + lugar.addressNumber2 + " - " + lugar.addressNumber3 + " " + lugar.addressLocation;
+                //TODO: Add insert logic here
+                _context.Lugares.Add(lugarDB);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
@@ -70,9 +84,9 @@ namespace ConvocaApp.Controllers
         // GET: Places/Edit/5
         public IActionResult Edit(int id)
         {
-            var eventsModel = _context.Lugares.Find(id);
-            if (eventsModel != null)
-                return View(eventsModel);
+            var placesModel = _context.Lugares.Find(id);
+            if (placesModel != null)
+                return View(placesModel);
             else
                 return NotFound();
 
@@ -87,15 +101,22 @@ namespace ConvocaApp.Controllers
         {
             try
             {
-                var placesModel = _context.Lugares.Find(id);
+                var lugarDB = _context.Lugares.Find(id);
 
-                if (placesModel != null)
+                if (lugarDB != null)
                 {
-                    placesModel.name = datosUpdate.name;
-                    placesModel.address = datosUpdate.address;
-                    placesModel.email = datosUpdate.email;
-                    placesModel.cellphone = datosUpdate.cellphone;
-                    placesModel.Id = datosUpdate.Id;                    
+                    lugarDB.name = datosUpdate.name;
+                    lugarDB.email = datosUpdate.email;
+                    lugarDB.cellphone = datosUpdate.cellphone;
+                    lugarDB.Id = datosUpdate.Id;
+                    lugarDB.addressStreet = datosUpdate.addressStreet;
+                    lugarDB.addressNumber1 = datosUpdate.addressNumber1;
+                    lugarDB.addressNumber2 = datosUpdate.addressNumber2;
+                    lugarDB.addressNumber3 = datosUpdate.addressNumber3;
+                    lugarDB.addressLocation = datosUpdate.addressLocation;
+                    datosUpdate.address = datosUpdate.addressStreet + " " + datosUpdate.addressNumber1 + " # " + datosUpdate.addressNumber2 + " - " + datosUpdate.addressNumber3 + " " + datosUpdate.addressLocation;
+                    //userDB.address = userDB.addressStreet + " " + userDB.addressNumber1 + " # " + userDB.addressNumber2 + " - " + userDB.addressNumber3 + " " + userDB.addressLocation;
+                    lugarDB.address = datosUpdate.address;
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }

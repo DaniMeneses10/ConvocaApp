@@ -20,19 +20,51 @@ namespace ConvocaApp.Controllers
         }
 
         // GET: Events
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var eventsModel = _context.Eventos.ToList<EventsModel>();
-            return View(await _context.Eventos.ToListAsync());
+            var eventos = _context.Eventos.ToList<EventsModel>();
+            var eventosVMlist = new List<EventsViewModel>();
+            foreach (var evento in eventos)
+            {
+                var eventoVM = new EventsViewModel();
+                eventoVM.category = evento.category;
+                eventoVM.sex = evento.sex;
+                eventoVM.date = evento.date;
+                eventoVM.hour = evento.hour;
+                eventoVM.minute = evento.minute;
+                eventoVM.meridian = evento.meridian;
+                eventoVM.Id = evento.Id;
+
+                eventoVM.time = evento.hour + " : " + evento.minute + " - " + evento.meridian;
+                eventoVM.time = evento.time;
+
+                eventoVM.reserve = evento.reserve;
+                eventoVM.cost = evento.cost;
+                eventoVM.paymment = evento.paymment;
+
+                eventoVM.place_id = evento.place_id;
+                var lugarEvento = _context.Lugares.Find(evento.place_id);
+                eventoVM.place_name = lugarEvento.name;
+
+                eventoVM.sport_id = evento.sport_id;
+                var deporteEvento = _context.Deportes.Find(evento.sport_id);
+                eventoVM.sport_name = deporteEvento.name;
+
+                eventosVMlist.Add(eventoVM);
+            }
+
+            return View(eventosVMlist);
+            
+            //return View(eventos);           
         }
 
         // GET: Events/Details/5
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            var eventsModel = _context.Eventos.Find(id);
+            var evento = _context.Eventos.Find(id);
 
-            if (eventsModel != null)
-                return View(eventsModel);
+            if (evento != null)
+                return View(evento);
             else
                 return NotFound();
         }
@@ -41,6 +73,9 @@ namespace ConvocaApp.Controllers
         // GET: Events/Create
         public IActionResult Create()
         {
+            ViewBag.Lugares = _context.Lugares.ToList();//DB
+            ViewBag.Deportes = _context.Deportes.ToList();//DB
+
             return View();
         }
 
@@ -49,12 +84,31 @@ namespace ConvocaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("category,sex,reserve,date,hour,cost,paymment,Id,place_id,sport_id")] EventsModel eventsModel)
+        public ActionResult Create(EventsModel evento)
         {
             try
             {
+                var eventoVM = new EventsModel();
+
+                eventoVM.category = evento.category;
+                eventoVM.sex = evento.sex;
+                eventoVM.reserve = evento.reserve;
+                eventoVM.date = evento.date;
+                eventoVM.cost = evento.cost;
+                eventoVM.paymment = evento.paymment;
+                eventoVM.hour = evento.hour;
+                eventoVM.minute = evento.minute;
+                eventoVM.meridian = evento.meridian;
+                eventoVM.Id = evento.Id;
+
+                eventoVM.place_id = evento.place_id;
+                eventoVM.sport_id = evento.sport_id;
+
+                eventoVM.time = evento.hour + " : " + evento.minute + " - " + evento.meridian;               
+
+                
                 // TODO: Add insert logic here
-                _context.Eventos.Add(eventsModel);
+                _context.Eventos.Add(eventoVM);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
@@ -68,9 +122,11 @@ namespace ConvocaApp.Controllers
         // GET: Events/Edit/5
         public IActionResult Edit(int? id)
         {
-            var eventsModel = _context.Eventos.Find(id);
-            if (eventsModel != null)
-                return View(eventsModel);
+            ViewBag.Lugares = _context.Lugares.ToList();//DB
+            ViewBag.Deportes = _context.Deportes.ToList();//DB
+            var evento = _context.Eventos.Find(id);
+            if (evento != null)
+                return View(evento);
             else
                 return NotFound();
 
@@ -81,24 +137,33 @@ namespace ConvocaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("category,sex,reserve,date,hour,cost,paymment,Id,place_id,sport_id")] EventsModel datosUpdate)
+        public IActionResult Edit(int id, EventsModel datosUpdate)
         {
             try
             {
-                var eventsModel = _context.Eventos.Find(id);
+                var eventoVM = _context.Eventos.Find(id);
 
-                if (eventsModel != null)
+                if (eventoVM != null)
                 {
-                    eventsModel.category = datosUpdate.category;
-                    eventsModel.sex = datosUpdate.sex;
-                    eventsModel.reserve = datosUpdate.reserve;
-                    eventsModel.date = datosUpdate.date;
-                    eventsModel.hour = datosUpdate.hour;
-                    eventsModel.cost = datosUpdate.cost;
-                    eventsModel.paymment = datosUpdate.paymment;
-                    eventsModel.Id = datosUpdate.Id;
-                    eventsModel.place_id = datosUpdate.place_id;
-                    eventsModel.sport_id = datosUpdate.sport_id;
+                    eventoVM.category = datosUpdate.category;
+                    eventoVM.sex = datosUpdate.sex;
+                    eventoVM.reserve = datosUpdate.reserve;
+                    eventoVM.date = datosUpdate.date;
+                    eventoVM.cost = datosUpdate.cost;
+                    eventoVM.paymment = datosUpdate.paymment;
+                    eventoVM.hour = datosUpdate.hour;
+                    eventoVM.minute = datosUpdate.minute;
+                    eventoVM.meridian = datosUpdate.meridian;
+                    eventoVM.Id = datosUpdate.Id;
+
+                    eventoVM.place_id = datosUpdate.place_id;
+                    eventoVM.sport_id = datosUpdate.sport_id;
+
+                    eventoVM.time = datosUpdate.hour + " : " + datosUpdate.minute + " - " + datosUpdate.meridian;
+
+
+                    // TODO: Add insert logic here
+                    //_context.Eventos.Add(eventoVM);
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
@@ -116,24 +181,24 @@ namespace ConvocaApp.Controllers
         // GET: Events/Delete/5
         public IActionResult Delete(int? id)
         {
-            var eventsModel = _context.Eventos.Find(id);
-            if (eventsModel != null)
-                return View(eventsModel);
+            var evento = _context.Eventos.Find(id);
+            if (evento != null)
+                return View(evento);
             else
                 return NotFound();
         }
 
         // POST: Events/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult Delete (int id)
         {
             try
             {
-                var eventsModel = _context.Eventos.Find(id);
-                if (eventsModel != null)
+                var evento = _context.Eventos.Find(id);
+                if (evento != null)
                 {
-                    _context.Eventos.Remove(eventsModel);
+                    _context.Eventos.Remove(evento);
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }

@@ -8,9 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using ConvocaApp.Data;
 using ConvocaApp.Models;
 using Microsoft.AspNetCore.Http;
+using SQLitePCL;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ConvocaApp.Controllers
 {
+    [Authorize]
     public class SportsController : Controller
     {
         private readonly ConvocaAppContext _context;
@@ -43,6 +46,8 @@ namespace ConvocaApp.Controllers
         // GET: Sports/Create
         public IActionResult Create()
         {
+            ViewBag.Accesorios = _context.Accesorios.ToList();
+            ViewBag.ActividadesFisicas = _context.ActividadesFisicas.ToList();
             return View();
         }
                 
@@ -70,6 +75,8 @@ namespace ConvocaApp.Controllers
         // GET: Sports/Edit/5
         public IActionResult Edit(int id)
         {
+            ViewBag.Accesorios = _context.Accesorios.ToList();
+            ViewBag.ActividadesFisicas = _context.ActividadesFisicas.ToList();
             var deporte = _context.Deportes.Find(id);
             if (deporte != null)
                 return View(deporte);
