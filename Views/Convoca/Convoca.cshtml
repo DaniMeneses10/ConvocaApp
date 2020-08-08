@@ -1,13 +1,66 @@
 ﻿@model ConvocaModel
 
 @{
-    ViewData["Title"] = "Portada de Aplicación";
+    ViewData["Title"] = "CONVOCA";
     Layout = "_StartApp";
-
 }
-<h1>@ViewData["Title"]</h1>
 
-<hr />
-Deporte: @Model.Deporte <br />
-Lugar: @Model.Lugar <br />
-Jugadores: @Model.Jugadores <br />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+
+    <body>
+        <section class="header_login">
+            <img class="login_mainImage" src="~/asset/images/convoca/convoca.png" alt="Logo de Convoca" />
+        </section>
+
+        <section class="logins">
+            <div class="login">
+                <div class="login_content">
+                    <h2>CREA TU CUENTA</h2>
+                    <div class="login_image">
+                        <img src="~/asset/images/futbol.jpg" width="400" height="250" alt="Imagen de Futbol" />
+                    </div>
+                    <br />
+                    <h3>Convoca tus equipos, ejercitate, compite!!!</h3>
+                    <br />
+                    <a class="login_button_register" href="https://localhost:44304/users/create" target="_blank">Registrate</a>
+                </div>
+            </div>
+            <div class="login">
+                <div class="login_content">
+                    <h2>INICIA TU SESIÓN</h2>
+                    <div class="login_image">
+                        <img src="~/asset/images/ciclismo.jpg" width="400" height="250" alt="Imagen de Ciclismo" />
+                    </div>
+                    <br />
+                    <h3>Quieres competir?... retalos, te están esperando!</h3>
+                    <br />
+                    <a class="login_button_signin" href="https://localhost:44304/users/login" target="_blank">Entrar</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="container">
+                <form action="/Suscripcion/" class="form-email">
+                    <h3>¿Convocamos algo juntos?</h3>
+                    <input type="text" placeholder="  Déjame tu email" id="email" />
+                    <button>Enviar</button>
+                </form>
+                <div class="social">
+
+                    <a href="https://twitter.com/dani_msgs" class="social_link twitter" target="blank1"></a>
+
+                    <a href="https://www.facebook.com/dani.msgs" class="social_link facebook" target="blank2"></a>
+
+                    <a href="https://github.com/DaniMeneses10" class="social_link github" target="blank3"></a>
+
+                    <a href="https://www.instagram.com/dani_msgs/" class="social_link instagram" target="blank4"></a>
+
+                    <a href="https://www.linkedin.com/in/daniel-meneses-guacas/" class="social_link linkedin" target="blank5"></a>
+
+                </div>
+            </div>
+        </section>
+
+    </body>
+

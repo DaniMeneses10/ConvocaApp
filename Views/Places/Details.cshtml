@@ -5,32 +5,31 @@
     //Layout = "~/Views/Places/";
 }
 
-<h1>Details</h1>
+<h1>Detalles del Lugar</h1>
 
-<div>
-    <h4>PlacesModel</h4>
+<div>    
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
+            Nombre
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.address)
+            Dirección
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.address)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.email)
+            Email
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cellphone)
+            Teléfono
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.cellphone)
@@ -38,6 +37,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edita el Lugar</a> |
+    <a asp-action="Index">Regresa a la lista</a>
 </div>

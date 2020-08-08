@@ -1,0 +1,29 @@
+﻿@model ConvocaApp.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "_StartApp";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+
+
+<body>
+
+    <section class="header_login">
+        <h1>Inicia tu sesión</h1>
+    </section>
+    <section class="form-register">
+        <form asp-action="Login">
+            @*<label Class="controls" asp-for="email">Email</label>*@
+            <input asp-for="email" class="controls" type="email" placeholder="Email" />
+            @*<label Class="controls" asp-for="password">Contraseña</label>*@
+            <input asp-for="password" Class="controls" type="password" placeholder="Password" />
+            <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+            <input class="botons" type="submit" value="Login" />
+        </form>
+    </section>
+    
+</body>
+
+

@@ -1,30 +1,36 @@
 ﻿@model ConvocaApp.Models.SportsModel
 
+@{    
+    Layout = "_StartApp";
+}
+
+<section class="header_login">
+    <h1>Detalles del Deporte</h1>
+</section>
 <div>
-    <h4>SportsModel</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
+        <dt class="col-sm-2">
+            Deporte
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.name)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.playerNumber)
+        <dt class="col-sm-2">
+            Número de Jugadores
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.playerNumber)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.accesories)
+        <dt class="col-sm-2">
+            Accesorios
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.accesories)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edita tu Deporte</a> |
+    <a asp-action="Index">Regresa a la lista</a>
 </div>

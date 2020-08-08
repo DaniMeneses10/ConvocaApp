@@ -2,72 +2,78 @@
 
 @{
     ViewData["Title"] = "Events Details";
-    //Layout = "~/Views/Events";
+    Layout = "_StartApp";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>EventsModel</h4>
+<section class="header_login">
+    <h1>Detalles de tu evento</h1>
+</section>
+
+<div class="event_details">
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.category)
+        <dt class="col-sm-2">
+            Categoria
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.category)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.sex)
+        <dt class="col-sm-2">
+            Sexo
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.sex)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.reserve)
+        <dt class="col-sm-2">
+            Reservación
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.reserve)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.date)
+        <dt class="col-sm-2">
+            Fecha
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.date)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hour)
+        <dt class="col-sm-2">
+            Hora
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hour)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.time)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cost)
+        <dt class="col-sm-2">
+            Costo
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.cost)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.paymment)
+        <dt class="col-sm-2">
+            Forma de pago
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.paymment)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.place_id)
+        <dt class="col-sm-2">
+            Lugar del Evento
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.place_id)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.sport_id)
+        <dt class="col-sm-2">
+            Deporte
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.sport_id)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="details_menu_main">
+    <div class="details_menu"><a asp-action="Edit" asp-route-id="@Model.Id">Editar</a></div>
+    <div class="details_menu"><a asp-action="Index">Regresa a la Lista</a></div>
+    <div class="details_menu"><a href="https://localhost:44304/Convoca/Index"> Home </a></div>
 </div>
+
+

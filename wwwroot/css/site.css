@@ -1,71 +1,625 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿/*///////////VARIABLES/////////////*/
+:root {
+    --darkblue-color: #1b2127; /*#24303c*/
+    --white-color: white;
+    --deepskyblue-color: #1f53c5;
+    --lightslategray-Color: lightslategray;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
+/*body {
+    background-color: var(--white-color);
+    padding: 0;
+    margin: 0;
     font-size: 16px;
-  }
+    font-family: Arial, Helvetica, sans-serif;
+}*/
+
+body{
+    background-color:var(--darkblue-color);
+}
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*////////////////        MAIN MENU      ///////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+.header_login{
+    text-align:center;
+    align-items:center;
+    background-color:var(--white-color);
+    padding:30PX;
+    height:230px;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+.login_mainImage {
+    padding: 20px;
+    width:1200px;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.logins {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color:var(--darkblue-color);
+}
+.login {
+    padding: 30px;
+    margin:20px;
+}
+.login_content {
+    box-shadow: 0 0 10px var(--deepskyblue-color);
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    color:var(--white-color);
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.login_content h2{
+    font-size:40px;
+    padding-top:20px;
+    padding-bottom:40px;
+}
+.login_content h3 {
+    padding-bottom: 20px;
+}
+.login_button_register {
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    background-color: var(--white-color);
+    color: var(--darkblue-color);    
+    padding: 20px;    
+    font-size: 20px;
+    border-radius: 10px;
+}
+    .login_button_register:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+    }
+.login_button_signin {
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    background-color: var(--white-color);
+    color: var(--darkblue-color);
+    padding: 20px;
+    padding-right:40px;
+    padding-left:40px;
+    font-size: 20px;
+    border-radius: 10px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+    .login_button_signin:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+    }
+
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*//////////////////        CREATE USER          //////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+
+.header_login h1{
+    font-size:90px;
+    color:var(--deepskyblue-color);
+    align-items:center;
+    justify-content:center;
+    padding-top:inherit;    
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.form-register{
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin:auto;
+    margin-top: 100px;
+    border-radius:4px;
+    font-family:'Calibri';
+    color:var(--white-color);
+    box-shadow: 7px 13px 37px var(--deepskyblue-color);
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+.controls{
+    width:100%;
+    background:var(--darkblue-color);
+    padding:10px;
+    border-radius:4px;
+    margin-bottom:16px;
+    border:1px solid var(--deepskyblue-color);
+    font-size:18px;
+    color: var(--white-color);
 }
+
+
+.form-register p{
+    height:40px;
+    text-align:center;
+    font-size:18px;
+    line-height:40px;
+}
+
+.form-register a{
+    color:var(--white-color);
+    text-decoration:none;
+}
+
+.form-register a:hover {
+        background-color: var(--deepskyblue-color);
+        cursor:pointer;
+        color: var(--white-color);
+        text-decoration: none;
+    }
+.form-register .botons {
+    width: 100%;
+    background-color: var(--white-color);
+    border: none;
+    padding: 12px;
+    color: var(--darkblue-color);
+    margin: 16px 0;
+    font-size: 16px;
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    border-radius: 10px;
+}
+
+    .form-register .botons:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+    }
+
+
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*//////////////////        INDEX          ////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+    /*/////////////////////////////////////////////////////////////////*/
+
+.container {
+    width: 1500px;
+    margin:0 auto;
+    display:inherit;
+    justify-content:inherit;
+    height:inherit;
+    align-items: inherit;
+}
+/*//////////////HEADER///////////Nav*/
+nav {
+    display: flex;
+    background-color: var(--deepskyblue-color);
+    padding: 10px;
+    color: var(--darkblue-color);
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    align-items: center;
+    background-color: var(--white-color);
+    padding: 30PX;
+    height: 230px;
+}
+
+.header_index {
+    text-align: center;
+    align-items: center;
+    background-color: var(--white-color);
+    padding: 30PX;
+    height: 230px;
+    display: flex;
+}
+
+.index_mainImage {
+    padding: 20px;
+    width: 800px;   
+}
+
+    nav ul{
+        display:flex;
+        padding-left:200px;
+        font-size:30px;
+    }
+        nav li{
+            padding-left:20px;
+            list-style: none;            
+        }
+            nav li a {
+                color: var(--darkblue-color); 
+                text-decoration: none;
+            }
+            nav li a:hover{
+                color:blue; 
+            }
+
+/*//////////////MAIN SECTION - HERO//////////////*/
+.main_section {
+    padding: 20px;
+    display: flex;
+    height:350px;
+    align-items: center;
+}
+    .main_image {
+        border-radius: 5px;
+        width:80%;
+        height: 80%;    
+    }
+    .main_comment {
+        color: var(--white-color); 
+    }
+    .main_comment strong{
+        color:var(--deepskyblue-color);
+    }
+
+  
+/*////////////////////MENU - CONTENT EVENTS///////////////////*/
+.events {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin: 30px; 
+}
+
+
+    .event {
+        padding: 20px;
+    }
+        .event .event_content .event_image {
+            padding:20px;
+            border-radius:5px;
+        }
+        .event .event_content {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius:5px;
+            box-shadow: 0 0 10px var(--deepskyblue-color);
+        }
+            .event .event_content p{
+                padding:10px;
+            }
+
+
+
+.event_button {
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    background-color: var(--darkblue-color);
+    color: var(--white-color);
+    padding: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+    .event_button:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+}
+
+/*////////////////////FOOTER-CONTACT//////////////////////////////*/
+
+.contact{
+    background-color:var(--deepskyblue-color);
+    color:var(--white-color);
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.social {
+/*    border:1px solid red;*/
+}
+.social_link {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+/*    border: 1px solid red;*/
+    background-size: 50px 50px;
+/*    padding-left:10px;*/
+}
+    .social_link.twitter {
+        background-image: url('../asset/images/twitter.png');
+    }
+
+    .social_link.facebook {
+        background-image: url('../asset/images/Facebook.png');
+    }
+
+    .social_link.github {
+        background-image: url('../asset/images/github.png');
+    }
+
+    .social_link.instagram {
+        background-image: url('../asset/images/Instagram.jpg');
+    }
+
+    .social_link.linkedin {
+        background-image: url('../asset/images/Linkedin.png');
+    }
+.form-email {
+    display: inline-block;
+}
+
+    .form-email input {
+        border-color: gray;
+        border-style: solid;
+        border-radius: 5px;
+        padding: 10px 20px 10px 50px;
+        background-image: url('../asset/images/envelope.png');
+        background-size: 30px 30px;
+        background-repeat: no-repeat;
+        background-position-y: center;
+        background-position-x: 5px;
+    }
+    .form-email button {
+        display: inline;
+        margin-top: 10px;
+        background: transparent;
+        color: var(--white-color);
+        padding: 5px 0px;
+        border-radius: 5px;
+        width: 100px;
+        margin: 10px auto 0;
+        }
+        .form-email h3 {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+
+/*/////////////////////////  CREATE EVENT  ////////////////////////////////*/
+
+table {
+    width: 85%;
+    margin: 150px;
+    text-align: center;
+    box-shadow: 0 0 10px var(--deepskyblue-color);
+    color: white;   
+    border-collapse:collapse;    
+}
+th{
+    align-items:center;
+    text-align:center;
+    font-size:20px;
+}
+
+th,td {
+        /*border: 1px solid var(--deepskyblue-color);*/
+        padding: 20px;    
+        color:white;
+    }
+
+thead{
+    background-color: var(--deepskyblue-color);
+    border-bottom:solid 5px;
+    color:var(--white-color);
+}
+
+tr:nth-child(even){
+    background-color:var(--deepskyblue-color);    
+}
+
+tr:hover td{
+    background-color:var(--white-color);
+    color:black;
+}
+
+.events_menu {
+    width: 5%;
+    background-color: var(--white-color);
+    border: none;
+    padding: 12px;
+    color: var(--darkblue-color);
+    margin: 16px;
+    margin-left: 500px;
+    font-size: 16px;
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    border-radius: 10px;
+    text-align: center;
+}
+
+    .events_menu:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+    }
+
+/*//////////////////////  SPORTS TABLE - INDEX   //////////////////////*/
+.sports_table {
+    width: 50%;
+    margin: 100px;
+    margin-left:500px;
+    text-align: center;
+    box-shadow: 0 0 10px var(--deepskyblue-color);
+    color: white;
+    border-collapse: collapse;
+}
+
+.sports_menu {
+    width: 5%;
+    background-color: var(--white-color);
+    border: none;
+    padding: 12px;
+    color: var(--darkblue-color);
+    margin: 16px;
+    margin-left:500px;
+    font-size: 16px;
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    border-radius: 10px;
+    text-align:center;
+}
+
+.sports_menu:hover {
+    background-color: var(--deepskyblue-color);
+    cursor: pointer;
+    color: var(--white-color);
+}
+/*//////////////////////  PLACES TABLE - INDEX   //////////////////////*/
+
+.places_table {
+    width: 60%;
+    margin: 100px;
+    margin-left: 450px;
+    text-align: center;
+    box-shadow: 0 0 10px var(--deepskyblue-color);
+    color: white;
+    border-collapse: collapse;
+}
+
+.places_menu {
+    width: 5%;
+    background-color: var(--white-color);
+    border: none;
+    padding: 12px;
+    color: var(--darkblue-color);
+    margin: 16px;
+    margin-left: 500px;
+    font-size: 16px;
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    border-radius: 10px;
+    text-align: center;
+}
+
+    .places_menu:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+    }
+
+/*//////////////////////  USERS DETAILS   //////////////////////*/
+
+.user_details {
+    width: 20%;
+    margin: 90px;
+    margin-bottom:50px;
+    padding:30px;
+    text-align: left;
+    box-shadow: 0 0 10px var(--deepskyblue-color);
+    color: white;
+    border-collapse: collapse;
+    align-items:center;
+}
+
+dt {
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+}
+
+dt, dd {
+    /*border: 1px solid var(--deepskyblue-color);*/
+    padding: 15px;
+    color: white;
+}
+
+.details_menu_main {
+    display: flex;
+    margin-top:0;
+    padding-left:50px;
+}
+
+.details_menu {
+    width: 10%;
+    background-color: var(--white-color);
+    border: none;
+    padding: 12px;
+    color: var(--darkblue-color);
+    margin: 10px;
+    margin-left: 50px;
+    margin-top:0;
+    font-size: 16px;
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    border-radius: 10px;
+    text-align: center;
+}
+
+    .details_menu:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+    }
+
+.col-sm-2{
+    padding:10px;
+}
+
+.col-sm-10{
+    align-items:center;
+    padding-left:60px;
+    text-align:left;
+}
+
+
+
+/*//////////////////////  EVENTS DETAILS   //////////////////////*/
+
+.event_details {
+    width: 80%;
+    box-shadow: 0 0 10px var(--deepskyblue-color);
+    margin: 90px;
+    margin-bottom: 50px;
+    margin-right:800px;
+    padding: 30px;
+    text-align: left;
+    
+    color: white;
+    border-collapse: collapse;
+    align-items: center;
+}
+
+.event_details dt {
+    align-items: center;
+    text-align: right;
+    font-size: 20px;       
+}
+
+    .event_details dd {
+        align-items: center;
+        text-align: left;
+        font-size: 20px;
+        margin-left: 5500px;
+        /*align-items: center;*/
+        padding-left: 20px;
+        text-align: left;
+        padding: 15px;
+        margin: 0;
+    }
+
+.event_details dt, dd {
+/*    border: 1px solid var(--deepskyblue-color);*/
+    padding: 15px;
+    color: white;
+}
+
+    .event_details .details_menu_main {
+        display: flex;
+        margin-top: 0;
+        padding-left: 50px;
+    }
+
+    .event_details .details_menu {
+        width: 10%;
+        background-color: var(--white-color);
+        border: none;
+        padding: 12px;
+        color: var(--darkblue-color);
+        margin: 10px;
+        margin-left: 50px;
+        margin-top: 0;
+        font-size: 16px;
+        box-shadow: 0 0 15px var(--deepskyblue-color);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+        .event_details .details_menu:hover {
+            background-color: var(--deepskyblue-color);
+            cursor: pointer;
+            color: var(--white-color);
+        }
+
+
+
+

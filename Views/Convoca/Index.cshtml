@@ -1,74 +1,107 @@
-﻿@{
-    ViewData["Title"] = "Portada de Aplicación";
-    Layout = "_StartApp";
+﻿
 
+@{
+    ViewData["Title"] = "Portada de Aplicación";
+    Layout = "_StartApp";    
 }
 
-    <body>
-        <h1>Tu!, Estas convocado</h1>
-        <nav>
-            <div class="logo_image">
-                <img src="~/asset/images/logo.jpg" alt="alternate text" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+
+<body>
+    @* ////////////////HEADER///////////// *@
+    <nav>
+        <div class="container">
+            <section class="header_index">
+                <img class="index_mainImage" src="~/asset/images/convoca/convoca.png" alt="Logo de Convoca" />
+            </section>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="https://localhost:44304/Cuenta/Index">Cuenta</a>
+                        @*<a href="https://localhost:44304/Users/Details">Cuenta</a>*@
+
+                    </li>
+                    <li>
+                        <a href="https://localhost:44304/sports/Index">Deportes</a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:44304/places/Index">Lugares</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <div class="nav_options">
-        
-            <div class="Usuarios">
-                <h2><a href="https://localhost:44304/users">Usuarios</a></h2>
-            </div>
-            <div class="Deportes">
-                <h2><a href="https://localhost:44304/sports">Deportes</a></h2>
-            </div>
-            <div class="Eventos">
-                <h2><a href="https://localhost:44304/events">Eventos</a></h2>
-            </div>
-            <div class="Lugares">
-                <h2><a href="https://localhost:44304/places">Lugares</a></h2>
-            </div>
-        
         </div>
-        
-        <style>
-            body {
-                padding: 10px;
-                margin: 10px;
-                font-size: 12px;
-                font-family: Arial, Helvetica, sans-serif;
-                justify-content:center;
-            }
-            
+    </nav>
 
-            nav {
-                display: flex;                
-                padding: 20px;
-                color: white;
-                justify-content: center;
-                align-items: center;
-                font-size: 16px;
-            }            
+        @*/////////////MAIN SECTION - HERO/////////////  *@
 
-            .nav_options {
-                height: 20px;
-                padding: 20px;
-                display: flex;
-                text-align:center;
-                justify-content:center;
-            }
-                .Usuarios{
-                    padding:30px;
-                }
-                .Deportes{
-                    padding:30px;
-                }
-                .Eventos{
-                    padding:30px;
-                }
-                .Lugares{
-                    padding:30px;
-                }
-        </style>
+    <section>
+        <div class="container">
+            <div class="main_section">
+                <h1 class="main_comment">
+                    TUUU...!!! <strong>Estás</strong><br>Convocado!!! <strong>para jugar</strong>
+                    <br>donde quieras<strong>, cuando quieras</strong>
+                </h1>
+                <div>
+                    <img class="main_image" src="~/asset/images/logo.jpg" alt="Imagen Principal del sitio" />
+                </div>
+            </div>
+        </div>
+    </section>
 
-        @*<p>@Viewbag.FechaActual</p>*@
+    @*/////////////MENU - CONTENT EVENTS/////////////  *@
 
-        <script src="asset/scripts/scrip.js"></script>
-    </body>
+       
+    <div class="container">
+        <div class="events">
+            <div class="event">
+                <div class="event_content">
+                    <h1>CONVOCA</h1>
+                    <div class="event-image">
+                        <img src="~/asset/images/futbol.jpg" width="300" height="200" alt="Imagen de Futbol" />
+                    </div>
+                    <p>Convoca tus equipos, ejercitate, compite!!!</p>
+                    <a class="event_button" href="https://localhost:44304/Events/Create" target="_blank">Crea tu Evento</a>
+                </div>
+            </div>
+            <div class="event">
+                <div class="event_content">
+                    <h1>CONVOCATORIAS</h1>
+                    <div class="event-image">
+                        <img src="~/asset/images/ciclismo.jpg" width="300" height="200" alt="Imagen de Ciclismo" />
+                    </div>
+                    <p>Quieres competir?... retalos, te están esperando!</p>
+                    <a class="event_button" href="https://localhost:44304/Events/Index" target="_blank">Te están esperando</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @*////////////CONTACT/////////////  *@
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <form action="/Suscripcion/" class="form-email">
+                <h3>¿Convocamos algo juntos?</h3>
+                <input type="text" placeholder="  Déjame tu email" id="email" />
+                <button>Enviar</button>
+            </form>
+            <div class="social">
+
+                <a href="https://twitter.com/dani_msgs" class="social_link twitter" target="blank1"></a>
+
+                <a href="https://www.facebook.com/dani.msgs" class="social_link facebook" target="blank2"></a>
+
+                <a href="https://github.com/DaniMeneses10" class="social_link github" target="blank3"></a>
+
+                <a href="https://www.instagram.com/dani_msgs/" class="social_link instagram" target="blank4"></a>
+
+                <a href="https://www.linkedin.com/in/daniel-meneses-guacas/" class="social_link linkedin" target="blank5"></a>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+

@@ -2,73 +2,118 @@
 
 @{
     ViewData["Title"] = "Create Event";
-    //Layout = "~/Views/Events";
+    Layout = "_StartApp";
 }
 
-<h1>Create</h1>
+@*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /><hr />*@
 
-<h4>EventsModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<body>
+    <section class="header_login">
+        <h1>Convoca tu Evento</h1>
+    </section>
+    <section class="form-register">        
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <select asp-for="category" class="controls">
+                <option value="" disabled selected hidden>--Selecciona Categoria--</option>
+                <option value="Adulto">Adulto</option>
+                <option value="Joven">Joven</option>
+                <option value="Niño">Niño</option>
+            </select>
+
+            <select asp-for="sex" class="controls">
+                <option value="" disabled selected hidden>--Elige Sexo--</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Mixto">Mixto</option>
+            </select>
+
+            <select asp-for="reserve" class="controls">
+                <option value="" disabled selected hidden>--Reservada--</option>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+
+            <label asp-for="date" class="controls1">Selecciona la Fecha del Evento</label>
+            <input asp-for="date" type="date" class="controls" />
+
+            <label asp-for="hour" class="controls1">Ingresa la hora del Evento</label>
+            <span class="selectTime">
+                <select asp-for="hour" class="controls" style="width:80px;" >
+                    <option value="" disabled selected hidden>--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+               
+                <span class="controls1"> : </span>
+
+                <select asp-for="minute" class="controls" style="width:80px;" >
+                    <option value="" disabled selected hidden>--</option>
+                    <option value="00"> 00 </option>
+                    <option value="30"> 30 </option>
+                </select>
+                <span class="controls1"> </span>
+
+
+                <select asp-for="meridian" class="controls" style="width:103px;" >
+                    <option value="" disabled selected hidden>--</option>
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </span>
+                        
+            <input asp-for="cost" class="controls" placeholder="Costo" />
+            
+            <select asp-for="paymment" class="controls">
+                <option value="" disabled selected hidden>--Selecciona Forma de Pago--</option>
+                <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                <option value="Tarjeta Débito">Tarjeta Débito</option>
+                <option value="Efectivo">Efectivo</option>
+            </select>
+            <span asp-validation-for="paymment" class="text-danger"></span>
+                        
+            <select asp-for="place_id" class="controls">
+                @foreach (var lugar in ViewBag.Lugares)
+                {
+                    <option value="" disabled selected hidden>--Elige el lugar-</option>
+                    <option value="@lugar.Id">@lugar.name</option>
+                }
+            </select>
+            
+            <select asp-for="sport_id" class="controls">
+                @foreach (var deporte in ViewBag.Deportes)
+                {
+                    <option value="" disabled selected hidden>--Elige el Deporte--</option>
+                    <option value="@deporte.Id">@deporte.name</option>
+                }
+            </select>
+            
             <div class="form-group">
-                <label asp-for="category" class="control-label"></label>
-                <input asp-for="category" class="form-control" />
-                <span asp-validation-for="category" class="text-danger"></span>
+                <input type="submit" value="Crear" class="botons" />
             </div>
-            <div class="form-group">
-                <label asp-for="sex" class="control-label"></label>
-                <input asp-for="sex" class="form-control" />
-                <span asp-validation-for="sex" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="reserve" class="control-label"></label>
-                <input asp-for="reserve" class="form-control" />
-                <span asp-validation-for="reserve" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="date" class="control-label"></label>
-                <input asp-for="date" class="form-control" />
-                <span asp-validation-for="date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="hour" class="control-label"></label>
-                <input asp-for="hour" class="form-control" />
-                <span asp-validation-for="hour" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="cost" class="control-label"></label>
-                <input asp-for="cost" class="form-control" />
-                <span asp-validation-for="cost" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="paymment" class="control-label"></label>
-                <input asp-for="paymment" class="form-control" />
-                <span asp-validation-for="paymment" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="place_id" class="control-label"></label>
-                <input asp-for="place_id" class="form-control" />
-                <span asp-validation-for="place_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="sport_id" class="control-label"></label>
-                <input asp-for="sport_id" class="form-control" />
-                <span asp-validation-for="sport_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </form>        
+    </section>
+
+    <div>
+        <a asp-action="Index">Regresa a la lista</a>
     </div>
-</div>
+</body>
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<style>
+    .selectTime {
+        display: inline-flex;
+    }
+</style>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

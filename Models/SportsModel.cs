@@ -7,7 +7,8 @@ namespace ConvocaApp.Models
         public string name { get; set; }
         public int playerNumber { get; set; }
         public string accesories { get; set; }
-        public int Id { get; set; }   
+        public int Id { get; set; }
+        
 
 
     }

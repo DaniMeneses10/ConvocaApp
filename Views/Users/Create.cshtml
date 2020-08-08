@@ -1,113 +1,74 @@
-﻿@model ConvocaApp.Models.UsersModel
+﻿@model ConvocaApp.Models.UsersViewModel
 
-<h1>Crea tu Usuario</h1>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="name" class="control-label">Nombre</label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="age" class="control-label">Edad</label>
-                <input asp-for="age" class="form-control" />
-                <span asp-validation-for="age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="email" class="control-label">Email</label>
-                <input asp-for="email" class="form-control" />
-                <span asp-validation-for="email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="sex" class="control-label">Sexo</label>
-                <select asp-for="sex" class="form-control">
-                    <option value="" disabled selected hidden>--Elige una opción--</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
-                    <option value="Otro">Otro</option>
-                </select>
-                <span asp-validation-for="sex" class="text-danger"></span>
-            </div>
-
-            @*<div class="form-group">
-                <label asp-for="address" class="control-label">Dirección</label>
-                <input asp-for="address" class="form-control" />
-                <span asp-validation-for="address" class="text-danger"></span>
-            </div>*@
-
-        <div class="form-group">
-            <label asp-for="address" class="control-label">Ingresa tu Dirección</label>
-            <select asp-for="address" class="form-control">
-                <option value="CL">Calle</option>
-                <option value="KR">Carrera</option>
-                <option value="DG">Diagonal</option>
-                <option value="TV">Transversal</option>
-                <option value="ACL">Avenida Calle</option>
-                <option value="AKR">Avenida Carrera</option>
-            </select>
-            <span asp-validation-for="address" class="text-danger"></span>
-        </div>
-
-            @*<div class="form-group">
-                <label asp-for="addressStreet" class="control-label">Ingresa tu Dirección</label>
-                <select asp-for="addressStreet" class="form-control">
-                    <option value="CL">Calle</option>
-                    <option value="KR">Carrera</option>
-                    <option value="DG">Diagonal</option>
-                    <option value="TV">Transversal</option>
-                    <option value="ACL">Avenida Calle</option>
-                    <option value="AKR">Avenida Carrera</option>
-                </select>
-                <input asp-for="addressNumber" placeholder="Noº" name="printipalRoad" type="text" class="form-control-sm form-control" value="">
-                <div class="input-group-append">
-                    <span class="bg-white input-group-text">#</span>
-                </div>
-
-                <input asp-for="addressNumber2" placeholder="Noº" name="generatorRoad" type="text" class="form-control-sm form-control" value="">
-                <div class="input-group-append">
-                    <span class="bg-white input-group-text">-</span>
-                </div>*@
-
-
-                @*<input asp-for="address" class="form-control" />
-            <span asp-validation-for="address" class="text-danger"></span>*@
-            @*</div>*@
-            <div class="form-group">
-                <label asp-for="password" class="control-label">Contraseña</label>
-                <input asp-for="password" class="form-control" />
-                <span asp-validation-for="password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="cellphone" class="control-label">Teléfono</label>
-                <input asp-for="cellphone" class="form-control" />
-                <span asp-validation-for="cellphone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="city" class="control-label">Ciudad</label>
-                <select asp-for="city" class="form-control">
-                    @foreach (var ciudad in ViewBag.Ciudades)
-                    {
-                        <option value="" disabled selected hidden>--Elige una opción--</option>
-                        <option value="@ciudad.Id">@ciudad.city</option>
-                        //La tabla me toma el valor
-                    }
-                </select>
-                <span asp-validation-for="city" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Regresa a la lista</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{
+    Layout = "_StartApp";
 }
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+
+<body>
+    <section class="header_login">
+        <h1>Registrar tu Usuario</h1>
+    </section>
+    <section class="form-register">
+        <form asp-action="Create">
+            <input asp-for="name" class="controls" type="text" placeholder="Nombre" />
+            <input asp-for="age" class="controls" type="number" placeholder="Edad" />
+            <input asp-for="cellphone" class="controls" placeholder="Teléfono" />
+            <input asp-for="email" class="controls" type="email" placeholder="Email" />
+            <input asp-for="password" Class="controls" type="password" placeholder="Password" />
+
+            <select asp-for="sex" class="controls">
+                <option value="" disabled selected hidden>--Elige Sexo--</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label asp-for="addressStreet" class="controls1">Ingresa tu Dirección</label>
+            <select asp-for="addressStreet" class="controls">
+                <option value="" disabled selected hidden>----</option>
+                <option value="Calle">Calle </option>
+                <option value="Carrera">Carrera </option>
+                <option value="Diagonal">Diagonal </option>
+                <option value="Transversal">Transversal </option>
+                <option value="Avenida Calle">Avenida Calle </option>
+                <option value="Avenida Carrera">Avenida Carrera </option>
+            </select>
+
+            <input asp-for="addressNumber1" class="controls" placeholder="  Noº  " style="width:103px;" />
+            <span class="controls1"> # </span>
+            <input asp-for="addressNumber2" class="controls" placeholder="  Noº  " style="width:103px;" />
+            <span class="controls1"> - </span>
+            <input asp-for="addressNumber3" class="controls" placeholder="  Noº  " style="width:103px;" />
+            
+            <select asp-for="addressLocation" class="controls">
+                <option value="" disabled selected hidden>--Zona--</option>
+                <option value="Norte">Norte</option>
+                <option value="Sur">Sur</option>
+                <option value="Centro">Centro</option>
+                <option value="Occidente">Occidente</option>
+                <option value="Oriente">Oriente</option>
+            </select>
+
+            <select asp-for="city" class="controls">
+                @foreach (var ciudad in ViewBag.Ciudades)
+                {
+                    <option value="" disabled selected hidden>--Elije tu Ciudad--</option>
+                    <option value="@ciudad.city">@ciudad.city</option>
+                    //La tabla me toma el valor
+                }
+            </select>
+            <input type="submit" value="Crear" class="botons" />
+        </form>
+    </section>
+
+
+    @*<div>
+        <a asp-action="Index">Regresa a la lista</a>
+    </div>*@
+</body>
+
+
+
+
+

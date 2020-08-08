@@ -1,37 +1,85 @@
 ﻿@model ConvocaApp.Models.SportsModel
 
-<h4>SportsModel</h4>
+<h1>Selecciona tu Deporte y accesorios necesarios</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
-                <input asp-for="name" class="form-control" />
+                <label asp-for="name" class="control-label">Deporte</label>
+                <select asp-for="name" class="form-control">
+                    @foreach (var actividad in ViewBag.ActividadesFisicas)
+                    {
+                        <option value="" disabled selected hidden>--Elige una opción--</option>
+                        <option value="@actividad.name">@actividad.name</option>
+                        //La tabla me toma el valor
+                    }
+                </select>
                 <span asp-validation-for="name" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="playerNumber" class="control-label"></label>
+                <label asp-for="playerNumber" class="control-label">Número de Jugadores</label>
                 <input asp-for="playerNumber" class="form-control" />
                 <span asp-validation-for="playerNumber" class="text-danger"></span>
             </div>
+
+            @*<div class="form-group">
+                <label asp-for="accesories" class="control-label">Accesorios</label>
+                <select asp-for="accesories" class="form-control">
+                    @foreach (var accesorio in ViewBag.Accesorios)
+                    {
+                        <option value="" disabled selected hidden>--Elige una opción--</option>
+                        <option value="@accesorio.accesories">@accesorio.accesories</option>
+                        //La tabla me toma el valor
+                    }
+                </select>
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>*@
+
+
+        <div class="form-group">
+            <label asp-for="accesories" class="control-label">Accesorios</label>
+            <ul class="accesoriesList">
+                @foreach (var accesorio in ViewBag.Accesorios)
+                {
+                    <li>
+                        <input asp-for="accesories" type="checkbox" value="@accesorio.accesories" /> @accesorio.accesories                    
+                    </li>
+                }
+            </ul>
+            <span asp-validation-for="accesories" class="text-danger"></span>
+        </div>
+
+
+
             <div class="form-group">
-                <label asp-for="accesories" class="control-label"></label>
-                <input asp-for="accesories" class="form-control" />
-                <span asp-validation-for="accesories" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresa a la lista</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<style>
+    .accesoriesList{
+        list-style:none;
+        margin: 0;
+        padding:0;
+    }
+    .accesoriesList li {
+        display: inline;
+        padding: 10px;
+        margin: -1px -1px 0 0;
+        text-align: center;
+    }
+</style>
+

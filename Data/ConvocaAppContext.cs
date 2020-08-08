@@ -22,6 +22,9 @@ namespace ConvocaApp.Data
         public DbSet<ConvocaApp.Models.PlacesModel> Lugares { get; set; }
         public DbSet<ConvocaApp.Models.ConvocadosModel> Convocados { get; set; }
         public DbSet<ConvocaApp.Models.CitiesModel> Ciudades { get; set; }
-        
+        public DbSet<ConvocaApp.Models.ActivitiesModel> ActividadesFisicas { get; set; }
+        public DbSet<ConvocaApp.Models.AccesoriesModel> Accesorios { get; set; }       
+
+
     }
 }

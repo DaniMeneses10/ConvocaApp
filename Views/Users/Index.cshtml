@@ -6,7 +6,7 @@
 
 <h1>Lista de Usuarios</h1>
 <p>
-    <a asp-action="Create">Crear nuevo Usuario</a>
+    <a asp-action="Create">Registrar nuevo Usuario</a>
 </p>
 <table class="table">
     <thead>
@@ -26,9 +26,6 @@
             <th>
                 Dirección
             </th>
-            @*<th>
-                Password
-            </th>*@
             <th>
                 Telefono
             </th>
@@ -41,37 +38,34 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.sex)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.address)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.password)
-                </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.cellphone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.city)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { item.Id /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Borrar Usuario", "Delete", new { item.Id/* id=item.PrimaryKey */ })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cellphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { item.Id /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Borrar Usuario", "Delete", new { item.Id/* id=item.PrimaryKey */ })
+            </td>
+        </tr>
         }
     </tbody>
 </table>

@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ConvocaApp.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ConvocaApp
 {
@@ -32,6 +33,11 @@ namespace ConvocaApp
             services.AddDbContext<ConvocaAppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ConvocaAppContext")));
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+                options.AccessDeniedPath = "/Users/Login";
+                options.LoginPath = "/Users/Login";        
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,14 +57,14 @@ namespace ConvocaApp
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Convoca}/{action=Index}/{id?}");
+                    pattern: "{controller=Convoca}/{action=Convoca}/{id?}");
             });
         }
     }

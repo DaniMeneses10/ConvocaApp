@@ -2,52 +2,54 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_StartApp";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<section class="header_login">
+    <h1>Lista de Deportes</h1>
+</section>
+<table class="sports_table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.name)
+                Deporte
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.playerNumber)
+                Número de Jugadores
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.accesories)
+                Accesorios
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th*@>            
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.playerNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.accesories)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>*@           
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {item.Id /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { item.Id/* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { item.Id/* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.playerNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.accesories)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>*@
+                @*<td>
+                    @Html.ActionLink("Editar", "Edit", new { item.Id /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Borrar Deporte", "Delete", new { item.Id/* id=item.PrimaryKey */ })
+                </td>*@
+            </tr>
+        }
     </tbody>
 </table>
+<br />
+<div class="sports_menu">
+    <a href="https://localhost:44304/Convoca/Index"> Home </a>
+</div>
+<br />

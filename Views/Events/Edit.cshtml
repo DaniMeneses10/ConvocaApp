@@ -5,71 +5,145 @@
     //Layout = "~/Views/Events";
 }
 
-<h1>Edit</h1>
-
-<h4>EventsModel</h4>
+<h1>Edita tu Evento</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="category" class="control-label"></label>
-                <input asp-for="category" class="form-control" />
+                <label asp-for="category" class="control-label">Categoria</label>
+                <select asp-for="category" class="form-control">
+                    @*<option value="" disabled selected hidden>--Selecciona--</option>*@
+                    <option value="Adulto">Adulto</option>
+                    <option value="Joven">Joven</option>
+                    <option value="Niño">Niño</option>
+                </select>
                 <span asp-validation-for="category" class="text-danger"></span>
+
             </div>
             <div class="form-group">
-                <label asp-for="sex" class="control-label"></label>
-                <input asp-for="sex" class="form-control" />
+                <label asp-for="sex" class="control-label">Sexo</label>
+                <select asp-for="sex" class="form-control">
+                    @*<option value="" disabled selected hidden>--Selecciona--</option>*@
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Mixto">Mixto</option>
+                </select>
                 <span asp-validation-for="sex" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="reserve" class="control-label"></label>
-                <input asp-for="reserve" class="form-control" />
+                <label asp-for="reserve" class="control-label">Reservación</label>
+                <select asp-for="reserve" class="form-control">
+                    @*<option value="" disabled selected hidden>--Selecciona--</option>*@
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                </select>
                 <span asp-validation-for="reserve" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="date" class="control-label"></label>
-                <input asp-for="date" class="form-control" />
+                <label asp-for="date" class="control-label">Fecha</label>
+                <input asp-for="date" type="date" class="form-control" /> 
                 <span asp-validation-for="date" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="hour" class="control-label"></label>
-                <input asp-for="hour" class="form-control" />
+
+
+            <span class="selectTime">
+                <label asp-for="hour" class="control-label">Ingresa la hora del Evento</label>
+                <select asp-for="hour" class="form-control">
+                    @*<option value="" disabled selected hidden>--</option>*@
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
                 <span asp-validation-for="hour" class="text-danger"></span>
-            </div>
+                <span class="bg-white input-group-text"> : </span>
+
+                <select asp-for="minute" class="form-control">
+                    @*<option value="" disabled selected hidden>--</option>*@
+                    <option value="00">00</option>
+                    <option value="30">30</option>
+                </select>
+                <span class="bg-white input-group-text"> </span>
+
+
+                <select asp-for="meridian" class="form-control">
+                    @*<option value="" disabled selected hidden>--</option>*@
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </span>
+
             <div class="form-group">
-                <label asp-for="cost" class="control-label"></label>
+                <label asp-for="cost" class="control-label">Costo</label>
                 <input asp-for="cost" class="form-control" />
                 <span asp-validation-for="cost" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="paymment" class="control-label"></label>
-                <input asp-for="paymment" class="form-control" />
+                <label asp-for="paymment" class="control-label">Forma de pago</label>
+                <select asp-for="paymment" class="form-control">
+                    @*<option value="" disabled selected hidden>--Selecciona--</option>*@
+                    <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                    <option value="Tarjeta Débito">Tarjeta Débito</option>
+                    <option value="Efectivo">Efectivo</option>
+                </select>
                 <span asp-validation-for="paymment" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
+
+
             <div class="form-group">
-                <label asp-for="place_id" class="control-label"></label>
-                <input asp-for="place_id" class="form-control" />
+                <label asp-for="place_id" class="control-label">Lugar del Evento</label>
+                <select asp-for="place_id" class="form-control">
+                    @foreach (var lugar in ViewBag.Lugares)
+                    {
+                        @*<option value="" disabled selected hidden>--Elige una opción--</option>*@
+                        <option value="@lugar.Id">@lugar.name</option>
+                    }
+                </select>
                 <span asp-validation-for="place_id" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="sport_id" class="control-label"></label>
-                <input asp-for="sport_id" class="form-control" />
+                <label asp-for="sport_id" class="control-label">Deporte</label>
+                <select asp-for="sport_id" class="form-control">
+                    @foreach (var deporte in ViewBag.Deportes)
+                    {
+                        @*<option value="" disabled selected hidden>--Elige una opción--</option>*@
+                        <option value="@deporte.Id">@deporte.name</option>
+                    }
+                </select>
                 <span asp-validation-for="sport_id" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresa a la lista</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<style>
+    .selectTime {
+        display: inline-flex;
+    }
+</style>

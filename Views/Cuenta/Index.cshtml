@@ -1,0 +1,62 @@
+﻿@model ConvocaApp.Models.CuentaModel
+
+@{
+    //ViewData["Title"] = "Details";
+    Layout = "_StartApp";
+}
+
+
+<section class="header_login">
+    <h1>Detalles de Usuario</h1>
+</section>
+<div class="user_details">
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Email:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => Model.email)
+        </dd>
+        <dt class="col-sm-2">
+            ID:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => Model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            Sexo:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.sex)
+        </dd>
+        <dt class="col-sm-2">
+            Dirección:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.address)
+        </dd>
+        <dt class="col-sm-2">
+            Teléfono:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cellphone)
+        </dd>
+        <dt class="col-sm-2">
+            Ciudad:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.city)
+        </dd>
+    </dl>
+</div>
+@*<div class="details_menu_main">
+    <div class="details_menu"><a asp-action="Edit" asp-route-id="@Model.Id">Editar</a></div>
+    <div class="details_menu"><a asp-action="Index">Regresa a la Lista</a></div>
+    <div class="details_menu"><a href="https://localhost:44304/Convoca/Index"> Home </a></div>
+</div>*@
+
+@*<div>
+    UserEmail: @ViewBag.UserEmail
+    UserId: @ViewBag.UserId
+</div>*@

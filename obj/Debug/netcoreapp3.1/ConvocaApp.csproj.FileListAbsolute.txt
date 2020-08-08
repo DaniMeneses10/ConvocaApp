@@ -189,3 +189,5 @@ C:\Users\Administrador\OneDrive - Chr Hansen\ConvocaApp\ConvocaApp\ConvocaApp\ob
 C:\Users\Administrador\OneDrive - Chr Hansen\ConvocaApp\ConvocaApp\ConvocaApp\obj\Debug\netcoreapp3.1\Razor\Views\Convocados\Delete.cshtml.g.cs
 C:\Users\Administrador\OneDrive - Chr Hansen\ConvocaApp\ConvocaApp\ConvocaApp\obj\Debug\netcoreapp3.1\Razor\Views\Convocados\Details.cshtml.g.cs
 C:\Users\Administrador\OneDrive - Chr Hansen\ConvocaApp\ConvocaApp\ConvocaApp\obj\Debug\netcoreapp3.1\Razor\Views\Convocados\Edit.cshtml.g.cs
+C:\Users\Administrador\OneDrive - Chr Hansen\ConvocaApp\ConvocaApp\ConvocaApp\obj\Debug\netcoreapp3.1\Razor\Views\Users\Login.cshtml.g.cs
+C:\Users\Administrador\OneDrive - Chr Hansen\ConvocaApp\ConvocaApp\ConvocaApp\obj\Debug\netcoreapp3.1\Razor\Views\Cuenta\Index.cshtml.g.cs
