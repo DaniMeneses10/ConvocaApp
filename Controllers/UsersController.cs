@@ -44,8 +44,7 @@ namespace ConvocaApp.Controllers
             
         }
         ///
-        ///
-        ///
+ 
         ///
         //GET: User/Login
         public ActionResult Login()
@@ -55,7 +54,6 @@ namespace ConvocaApp.Controllers
             //return RedirectToAction("Index", "Convoca");
             //return RedirectToAction("Login", "Users");
         }
-
 
         //POST: User/Login
         [HttpPost]

@@ -28,7 +28,7 @@ namespace ConvocaApp.Controllers
             _context = context;
         }
 
-                public IActionResult Index()
+        public IActionResult Index()
         {
             var a = User;
             var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
@@ -39,21 +39,21 @@ namespace ConvocaApp.Controllers
             var avion = usuario;
 
             var userdetails = new CuentaModel(avion);
-            userdetails.name = usuario.name;
-            userdetails.age = usuario.age;
-            userdetails.email = usuario.email;
-            userdetails.sex = usuario.sex;
-            userdetails.password = usuario.password;
-            userdetails.cellphone = usuario.cellphone;
-            userdetails.Id = usuario.Id;
-            userdetails.country = usuario.country;
-            userdetails.city = usuario.city;
-            userdetails.addressStreet = usuario.addressStreet;
-            userdetails.addressNumber1 = usuario.addressNumber1;
-            userdetails.addressNumber2 = usuario.addressNumber2;
-            userdetails.addressNumber3 = usuario.addressNumber3;
-            userdetails.addressLocation = usuario.addressLocation;
-            userdetails.address = usuario.addressStreet + " " + usuario.addressNumber1 + " # " + usuario.addressNumber2 + " - " + usuario.addressNumber3 + " " + usuario.addressLocation;
+                userdetails.name = usuario.name;
+                userdetails.age = usuario.age;
+                userdetails.email = usuario.email;
+                userdetails.sex = usuario.sex;
+                userdetails.password = usuario.password;
+                userdetails.cellphone = usuario.cellphone;
+                userdetails.Id = usuario.Id;
+                userdetails.country = usuario.country;
+                userdetails.city = usuario.city;
+                userdetails.addressStreet = usuario.addressStreet;
+                userdetails.addressNumber1 = usuario.addressNumber1;
+                userdetails.addressNumber2 = usuario.addressNumber2;
+                userdetails.addressNumber3 = usuario.addressNumber3;
+                userdetails.addressLocation = usuario.addressLocation;
+                userdetails.address = usuario.addressStreet + " " + usuario.addressNumber1 + " # " + usuario.addressNumber2 + " - " + usuario.addressNumber3 + " " + usuario.addressLocation;
 
             return View(userdetails);
 
@@ -62,14 +62,5 @@ namespace ConvocaApp.Controllers
     }
 }
 
-    //public class CuentaController : Controller
-    //{
-    //    public IActionResult Index()
-    //    {
-    //        var a = User;
-    //        ViewBag.UserId = User.Claims.FirstOrDefault(c => c.Type == "UserId");
-    //        ViewBag.UserEmail = User.Claims.FirstOrDefault(c => c.Type == "UserEmail");
-    //        return View();
-    //    }
-    //}
+
 
