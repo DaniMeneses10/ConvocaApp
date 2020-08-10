@@ -6,13 +6,6 @@
     --lightslategray-Color: lightslategray;
 }
 
-/*body {
-    background-color: var(--white-color);
-    padding: 0;
-    margin: 0;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-}*/
 
 body{
     background-color:var(--darkblue-color);
@@ -37,6 +30,63 @@ body{
     padding: 20px;
     width:1200px;
 }
+
+/*//////////////////////////// EVENTOS //////////////////////////////*/
+
+.smallEvents {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: var(--darkblue-color);
+}
+
+.smalEvent {
+    padding: 30px;
+    margin: 20px;
+}
+
+.smallEvent_content {
+    box-shadow: 0 0 10px var(--deepskyblue-color);
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    color: var(--white-color);
+}
+
+    .smallEvent_content h2 {
+        color: var(--white-color);
+        font-size: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .smallEvent_content h3 {
+        color: var(--white-color);
+        padding-bottom: 0px;
+    }
+
+.smallEvent_button{
+    text-align:center;
+}
+.smallEvent_button a {
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    background-color: var(--white-color);
+    color: var(--darkblue-color);
+    padding: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+    .smallEvent_button a:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+    }
+
+/*/////////////////////////REGISTRATE - INICIAR SESIÓN///////////////////////*/
 
 .logins {
     display: flex;
