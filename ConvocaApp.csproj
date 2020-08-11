@@ -5,13 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Asset\images\atletismo.jpg" />
-    <None Include="wwwroot\Asset\images\baloncesto.jpg" />
-    <None Include="wwwroot\Asset\images\ciclismo.jpg" />
+    <None Include="wwwroot\Asset\images\atletismo1.jpg" />
+    <None Include="wwwroot\Asset\images\baloncesto1.jpg" />
+    <None Include="wwwroot\Asset\images\ciclismo1.jpg" />
     <None Include="wwwroot\Asset\images\Convoca.jpg" />
     <None Include="wwwroot\Asset\images\envelope.png" />
     <None Include="wwwroot\Asset\images\Facebook.png" />
-    <None Include="wwwroot\Asset\images\futbol.jpg" />
+    <None Include="wwwroot\Asset\images\futbol1.jpg" />
     <None Include="wwwroot\Asset\images\github.png" />
     <None Include="wwwroot\Asset\images\Instagram.jpg" />
     <None Include="wwwroot\Asset\images\Linkedin.png" />

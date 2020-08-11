@@ -39,36 +39,61 @@ body{
     text-align: center;
     align-items: center;
     background-color: var(--darkblue-color);
+    height:320px;
 }
 
 .smalEvent {
-    padding: 30px;
+    padding: 0;
     margin: 20px;
+    /*resize:both;*/
+    position:relative;
 }
 
 .smallEvent_content {
-    box-shadow: 0 0 10px var(--deepskyblue-color);
-    padding: 10px;
-    padding-top: 10px;
+    width:250px;
+    height:250px;
+/*    box-shadow: 0 0 10px var(--deepskyblue-color);*/
+    padding: 0px;
+    padding-top: 0px;
     padding-bottom: 5px;
     color: var(--white-color);
+    position:relative;
+    display:inline-block;
+    text-align:center;
 }
 
-    .smallEvent_content h2 {
-        color: var(--white-color);
-        font-size: 40px;
-        padding-top: 20px;
-        padding-bottom: 20px;
+.smallEvent_image {
+    width: 250px;
+    height: 250px;
+    
+}
+
+.smallEvent_sport {
+    color: var(--white-color);
+    /*color:black;*/
+    font-size: 30px;
+    position: absolute;
+    margin: -60px;
+    margin-left: 80px;
+    text-align: center;
+    align-items: center;
+    font-weight:600;
+}
+
+.smallEvent_sport a{
+    color: var(--white-color);   
+}
+    .smallEvent_sport a:hover {
+/*        background-color: var(--deepskyblue-color);*/
+        cursor: pointer;
+        color: var(--deepskyblue-color);
     }
 
-    .smallEvent_content h3 {
-        color: var(--white-color);
-        padding-bottom: 0px;
-    }
 
 .smallEvent_button{
     text-align:center;
 }
+
 .smallEvent_button a {
     box-shadow: 0 0 15px var(--deepskyblue-color);
     background-color: var(--white-color);
