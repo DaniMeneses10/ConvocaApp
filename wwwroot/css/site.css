@@ -337,7 +337,6 @@ nav {
     margin: 30px; 
 }
 
-
     .event {
         padding: 20px;
     }
@@ -562,19 +561,42 @@ tr:hover td{
         cursor: pointer;
         color: var(--white-color);
     }
+/*//////////////////////  PLACES TABLE - INDEX   //////////////////////*/
+.events_list{
+    align-items:center;
+    text-align: center;
+}
+.test {
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    padding:10px;
+}
+
+.event_item{
+    display:flex;
+    align-items:center;
+    text-align:left;
+}
+
+.event_item h1,h2,h3,h4,h5,h6{
+    color:white;
+    padding:3px;
+}
+.event_details_list{
+
+}
+
 
 /*//////////////////////  USERS DETAILS   //////////////////////*/
-
 .user_details {
     width: 20%;
     margin: 90px;
-    margin-bottom:50px;
-    padding:30px;
+    margin-bottom: 50px;
+    padding: 30px;
     text-align: left;
     box-shadow: 0 0 10px var(--deepskyblue-color);
     color: white;
     border-collapse: collapse;
-    align-items:center;
+    align-items: center;
 }
 
 dt {
