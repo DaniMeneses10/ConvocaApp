@@ -210,7 +210,7 @@ namespace ConvocaApp.Controllers
                     //_context.Usuarios.Add(userDB);
                     _context.SaveChanges();
 
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Index", "Cuenta");
                 }
                 else
                     return NotFound();

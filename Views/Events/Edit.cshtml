@@ -1,5 +1,6 @@
 ﻿@model ConvocaApp.Models.EventsModel
 
+
 @{
     ViewData["Title"] = "Edit Events";
     //Layout = "~/Views/Events";
@@ -45,7 +46,7 @@
 
             <div class="form-group">
                 <label asp-for="date" class="control-label">Fecha</label>
-                <input asp-for="date" type="date" class="form-control" /> 
+                <input asp-for="date" type="date" class="form-control" />
                 <span asp-validation-for="date" class="text-danger"></span>
             </div>
 

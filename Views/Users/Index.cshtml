@@ -4,7 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista de Usuarios</h1>
+<section class="header_login">
+    <h1>Lista de Usuarios</h1>
+</section>
 <p>
     <a asp-action="Create">Registrar nuevo Usuario</a>
 </p>
@@ -60,11 +62,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.city)
             </td>
-            <td>
+            @*<td>
                 @Html.ActionLink("Editar", "Edit", new { item.Id /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Borrar Usuario", "Delete", new { item.Id/* id=item.PrimaryKey */ })
-            </td>
+            </td>*@
         </tr>
         }
     </tbody>
