@@ -24,5 +24,6 @@ namespace ConvocaApp.Models
         public int hour { get; set; }
         public int minute { get; set; }
         public string meridian { get; set; }
+        public string picture_url { get; set; }
     }
 }

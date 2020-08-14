@@ -19,44 +19,31 @@
             <li class="test">
                 <div class="event_item">
 
-                    @switch (item.sport_id)
-                    {
-                        case 26:<img class="smallEvent_image" src="~/asset/images/baloncesto.jpg" />
-                            break;
-                        case 27:<img class="smallEvent_image" src="~/asset/images/futbol.jpg" />
-                            break;
-                        case 29:<img class="smallEvent_image" src="~/asset/images/tenis.jpg" />
-                            break;
-                        case 30:<img class="smallEvent_image" src="~/asset/images/atletismo.jpg" />
-                            break;
-                        case 31:<img class="smallEvent_image" src="~/asset/images/ciclismo.jpg" />
-                            break;
-                        default: <h1>Sin Imagenes para mostrar</h1>
-                            break;
-                    }
 
-                <div class="event_details_list">
-                    <h2>Deporte: @Html.DisplayFor(modelItem => item.sport_name)</h2>
-                    <br />
-                    <h3>Lugar del Evento: @Html.DisplayFor(modelItem => item.place_name)</h3>
-                    <br />
-                    <h3>Fecha del evento: @Html.DisplayFor(modelItem => item.date)</h3>
-                    <br />
-                    <h3>Hora: @Html.DisplayFor(modelItem => item.time)</h3>
-                    <br />
-                    <h3>Costo: @Html.DisplayFor(modelItem => item.cost)</h3>
-                    <br />
-                    @*<h4>Forma de pago: @Html.DisplayFor(modelItem => item.paymment)</h4>
-                    <h4>Categoria: @Html.DisplayFor(modelItem => item.category)</h4>
-                    <h4>Sexo: @Html.DisplayFor(modelItem => item.sex)</h4>
-                    <h5>Reservación: @Html.DisplayFor(modelItem => item.reserve)</h5>*@
-                    <h4>@Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ })</h4>
-                </div>
-                     
+                    <img class="smallEvent_image" src="@Url.Content(@item.picture_url)" />
 
-                    
+                    <div class="event_details_list">
+                        <h2>Deporte: @Html.DisplayFor(modelItem => item.sport_name)</h2>
+                        <br />
+                        <h3>Lugar del Evento: @Html.DisplayFor(modelItem => item.place_name)</h3>
+                        <br />
+                        <h3>Fecha del evento: @Html.DisplayFor(modelItem => item.date)</h3>
+                        <br />
+                        <h3>Hora: @Html.DisplayFor(modelItem => item.time)</h3>
+                        <br />
+                        <h3>Costo: @Html.DisplayFor(modelItem => item.cost)</h3>
+                        <br />
+                        @*<h4>Forma de pago: @Html.DisplayFor(modelItem => item.paymment)</h4>
+                            <h4>Categoria: @Html.DisplayFor(modelItem => item.category)</h4>
+                            <h4>Sexo: @Html.DisplayFor(modelItem => item.sex)</h4>
+                            <h5>Reservación: @Html.DisplayFor(modelItem => item.reserve)</h5>*@
+                        <h4>@Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ })</h4>
+                    </div>
+
+
+
                     @*@Html.ActionLink("Deseo jugar", "Edit", new { item.Id /* id=item.PrimaryKey */ }) |*@
-                    
+
                     @*@Html.ActionLink("Borrar Usuario", "Delete", new { item.Id/* id=item.PrimaryKey */ })*@
                 </div>
             </li>

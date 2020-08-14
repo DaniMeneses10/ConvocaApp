@@ -50,6 +50,32 @@ namespace ConvocaApp.Controllers
                 var deporteEvento = _context.Deportes.Find(evento.sport_id);
                 eventoVM.sport_name = deporteEvento.name;
 
+                string picture_url;
+
+                switch (evento.sport_id)
+                {
+                    case 26:
+                        picture_url = "~/asset/images/baloncesto.jpg";
+                        break;
+                    case 27:
+                        picture_url = "~/asset/images/futbol.jpg";
+                        break;
+                    case 29:
+                        picture_url = "~/asset/images/tenis.jpg";
+                        break;
+                    case 30:
+                        picture_url = "~/asset/images/atletismo.jpg";
+                        break;
+                    case 31:
+                        picture_url = "~/asset/images/ciclismo.jpg";
+                        break;
+                    default:
+                        picture_url = "Sin Imagenes para mostrar";
+                        break;
+                }
+
+                eventoVM.picture_url = picture_url;
+
                 eventosVMlist.Add(eventoVM);
             }
 
