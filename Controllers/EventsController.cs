@@ -52,21 +52,21 @@ namespace ConvocaApp.Controllers
 
                 string picture_url;
 
-                switch (evento.sport_id)
+                switch (eventoVM.sport_name)
                 {
-                    case 26:
+                    case "Baloncesto":
                         picture_url = "~/asset/images/baloncesto.jpg";
                         break;
-                    case 27:
+                    case "Futbol":
                         picture_url = "~/asset/images/futbol.jpg";
                         break;
-                    case 29:
+                    case "Tenis":
                         picture_url = "~/asset/images/tenis.jpg";
                         break;
-                    case 30:
+                    case "Atletismo":
                         picture_url = "~/asset/images/atletismo.jpg";
                         break;
-                    case 31:
+                    case "Ciclismo":
                         picture_url = "~/asset/images/ciclismo.jpg";
                         break;
                     default:
