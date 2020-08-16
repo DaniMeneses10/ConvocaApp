@@ -5,7 +5,6 @@
     //ViewData["Title"] = "Index";
     Layout = "_StartApp";
 }
-@*<link rel="stylesheet" href="~/css/site.css" />*@
 
 <section class="header_login">
     <h1>Lista de Eventos</h1>
@@ -32,18 +31,12 @@
                         <h3>Hora: @Html.DisplayFor(modelItem => item.time)</h3>
                         <br />
                         <h3>Costo: @Html.DisplayFor(modelItem => item.cost)</h3>
-                        <br />
-                        @*<h4>Forma de pago: @Html.DisplayFor(modelItem => item.paymment)</h4>
-                            <h4>Categoria: @Html.DisplayFor(modelItem => item.category)</h4>
-                            <h4>Sexo: @Html.DisplayFor(modelItem => item.sex)</h4>
-                            <h5>Reservación: @Html.DisplayFor(modelItem => item.reserve)</h5>*@
+                        <br />                        
                         <h4>@Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ })</h4>
                     </div>
 
 
-
                     @*@Html.ActionLink("Deseo jugar", "Edit", new { item.Id /* id=item.PrimaryKey */ }) |*@
-
                     @*@Html.ActionLink("Borrar Usuario", "Delete", new { item.Id/* id=item.PrimaryKey */ })*@
                 </div>
             </li>
@@ -60,17 +53,8 @@
                     @*</td>*@ 
                     
 
-                            @*<td>
-                                Quiero jugar
-                            </td>
-                            </tr>
-                            }
-                            </tbody>
-                            </table>
+                          
 
 
-        <div class="events_menu">
-        <a href="https://localhost:44304/Convoca/Index"> Home </a>
-        </div>
-        <br />*@
+      
 

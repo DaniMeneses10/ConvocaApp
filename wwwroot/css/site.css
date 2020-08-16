@@ -653,6 +653,7 @@ dt, dd {
 /*//////////////////////  EVENTS DETAILS   //////////////////////*/
 
 .event_details {
+    display:flex;
     width: 80%;
     box-shadow: 0 0 10px var(--deepskyblue-color);
     margin: 90px;

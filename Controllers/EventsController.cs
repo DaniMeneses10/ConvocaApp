@@ -84,16 +84,70 @@ namespace ConvocaApp.Controllers
             //return View(eventos);           
         }
 
+
         // GET: Events/Details/5
         public IActionResult Details(int id)
         {
+           
             var evento = _context.Eventos.Find(id);
 
+            var eventoVM = new EventsViewModel();
+            eventoVM.category = evento.category;
+            eventoVM.sex = evento.sex;
+            eventoVM.date = evento.date;
+            eventoVM.hour = evento.hour;
+            eventoVM.minute = evento.minute;
+            eventoVM.meridian = evento.meridian;
+            eventoVM.Id = evento.Id;
+
+            eventoVM.time = evento.hour + " : " + evento.minute + " - " + evento.meridian;
+            eventoVM.time = evento.time;
+
+            eventoVM.reserve = evento.reserve;
+            eventoVM.cost = evento.cost;
+            eventoVM.paymment = evento.paymment;
+
+            eventoVM.place_id = evento.place_id;
+            var lugarEvento = _context.Lugares.Find(evento.place_id);
+            eventoVM.place_name = lugarEvento.name;
+
+            eventoVM.sport_id = evento.sport_id;
+            var deporteEvento = _context.Deportes.Find(evento.sport_id);
+            eventoVM.sport_name = deporteEvento.name;
+
+            string picture_url;
+
+            switch (eventoVM.sport_name)
+            {
+                case "Baloncesto":
+                    picture_url = "~/asset/images/baloncesto.jpg";
+                    break;
+                case "Futbol":
+                    picture_url = "~/asset/images/futbol.jpg";
+                    break;
+                case "Tenis":
+                    picture_url = "~/asset/images/tenis.jpg";
+                    break;
+                case "Atletismo":
+                    picture_url = "~/asset/images/atletismo.jpg";
+                    break;
+                case "Ciclismo":
+                    picture_url = "~/asset/images/ciclismo.jpg";
+                    break;
+                default:
+                    picture_url = "Sin Imagenes para mostrar";
+                    break;
+            }
+
+            eventoVM.picture_url = picture_url;
+
+
             if (evento != null)
-                return View(evento);
+                return View(eventoVM);
             else
                 return NotFound();
         }
+
 
 
         // GET: Events/Create
