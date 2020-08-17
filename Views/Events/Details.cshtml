@@ -10,71 +10,22 @@
     <h1>Detalles de tu evento</h1>
 </section>
 
-<div class="event_details">
-    <hr />
+<section class="form-register">
     <img class="smallEvent_image" src="@Url.Content(Model.picture_url)" />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Categoria
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.category)
-        </dd>
-        <dt class="col-sm-2">
-            Sexo
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.sex)
-        </dd>
-        <dt class="col-sm-2">
-            Reservación
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.reserve)
-        </dd>
-        <dt class="col-sm-2">
-            Fecha
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.date)
-        </dd>
-        <dt class="col-sm-2">
-            Hora
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.time)
-        </dd>
-        <dt class="col-sm-2">
-            Costo
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.cost)
-        </dd>
-        <dt class="col-sm-2">
-            Forma de pago
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.paymment)
-        </dd>
-        <dt class="col-sm-2">
-            Lugar del Evento
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.place_name)
-        </dd>
-        <dt class="col-sm-2">
-            Deporte
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.sport_name)
-        </dd>
-    </dl>
-</div>
+    <hr />
+    <label class="controls">Deporte: @Html.DisplayFor(model => model.sport_name)</label>
+    <label class="controls">Lugar: @Html.DisplayFor(model => model.place_name)</label>
+    <label class="controls">Fecha:  @Html.DisplayFor(model => model.date)</label>
+    <label class="controls">Hora: @Html.DisplayFor(model => model.time)</label>
+    <label class="controls">Categoria: @Html.DisplayFor(model => model.category)</label>
+    <label class="controls">Generó: @Html.DisplayFor(model => model.sex)</label>
+    <label class="controls">Reservación: @Html.DisplayFor(model => model.reserve)</label>
+    <label class="controls">Costo: @Html.DisplayFor(model => model.cost)</label>
+    <label class="controls">Forma de Pago: @Html.DisplayFor(model => model.paymment)</label>
 
-<div class="details_menu_main">
-    <div class="details_menu"><a asp-action="Edit" asp-route-id="@Model.Id">Editar</a></div>
-    <div class="details_menu"><a asp-action="Index">Regresa a la Lista</a></div>
-    <div class="details_menu"><a href="https://localhost:44304/Convoca/Index"> Home </a></div>
-</div>
-
-
+    <div class="details_menu_main">
+        <a class="botons" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+        <a class="botons" asp-action="Index">Regresa a la Lista</a>
+        <a class="botons" href="https://localhost:44304/Convoca/Index"> Home </a>
+    </div>
+</section>

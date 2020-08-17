@@ -13,6 +13,7 @@
     </section>
     <section class="form-register">        
         <form asp-action="Create">
+            <label asp-for="category" class="controls1">Categoria</label>
             <select asp-for="category" class="controls">
                 <option value="" disabled selected hidden>--Selecciona Categoria--</option>
                 <option value="Adulto">Adulto</option>
@@ -20,6 +21,7 @@
                 <option value="Niño">Niño</option>
             </select>
 
+            <label asp-for="sex" class="controls1">Sexo</label>
             <select asp-for="sex" class="controls">
                 <option value="" disabled selected hidden>--Elige Sexo--</option>
                 <option value="Masculino">Masculino</option>
@@ -27,18 +29,19 @@
                 <option value="Mixto">Mixto</option>
             </select>
 
+            <label asp-for="reserve" class="controls1">Reservación</label>
             <select asp-for="reserve" class="controls">
                 <option value="" disabled selected hidden>--Reservada--</option>
                 <option value="Si">Si</option>
                 <option value="No">No</option>
             </select>
 
-            <label asp-for="date" class="controls1">Selecciona la Fecha del Evento</label>
+            <label asp-for="date" class="controls1">Fecha del Evento</label>
             <input asp-for="date" type="date" class="controls" />
 
-            <label asp-for="hour" class="controls1">Ingresa la hora del Evento</label>
+            <label asp-for="hour" class="controls1">Hora del Evento</label>
             <span class="selectTime">
-                <select asp-for="hour" class="controls" style="width:80px;" >
+                <select asp-for="hour" class="controls" style="width:80px;">
                     <option value="" disabled selected hidden>--</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -53,10 +56,10 @@
                     <option value="11">11</option>
                     <option value="12">12</option>
                 </select>
-               
+
                 <span class="controls1"> : </span>
 
-                <select asp-for="minute" class="controls" style="width:80px;" >
+                <select asp-for="minute" class="controls" style="width:80px;">
                     <option value="" disabled selected hidden>--</option>
                     <option value="00"> 00 </option>
                     <option value="30"> 30 </option>
@@ -64,23 +67,26 @@
                 <span class="controls1"> </span>
 
 
-                <select asp-for="meridian" class="controls" style="width:103px;" >
+                <select asp-for="meridian" class="controls" style="width:103px;">
                     <option value="" disabled selected hidden>--</option>
                     <option value="AM">AM</option>
                     <option value="PM">PM</option>
                 </select>
             </span>
-                        
+
+            <label asp-for="cost" class="controls1">Costo</label>
             <input asp-for="cost" class="controls" placeholder="Costo" />
-            
+
+            <label asp-for="paymment" class="controls1">Forma de pago</label>
             <select asp-for="paymment" class="controls">
                 <option value="" disabled selected hidden>--Selecciona Forma de Pago--</option>
                 <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
                 <option value="Tarjeta Débito">Tarjeta Débito</option>
                 <option value="Efectivo">Efectivo</option>
             </select>
-            <span asp-validation-for="paymment" class="text-danger"></span>
-                        
+            @*<span asp-validation-for="paymment" class="text-danger"></span>*@
+
+            <label asp-for="place_id" class="controls1">Lugar del Evento</label>
             <select asp-for="place_id" class="controls">
                 @foreach (var lugar in ViewBag.Lugares)
                 {
@@ -88,7 +94,8 @@
                     <option value="@lugar.Id">@lugar.name</option>
                 }
             </select>
-            
+
+            <label asp-for="sport_id" class="controls1">Deporte</label>
             <select asp-for="sport_id" class="controls">
                 @foreach (var deporte in ViewBag.Deportes)
                 {
@@ -96,7 +103,7 @@
                     <option value="@deporte.Id">@deporte.name</option>
                 }
             </select>
-            
+
             <div class="form-group">
                 <input type="submit" value="Crear" class="botons" />
             </div>

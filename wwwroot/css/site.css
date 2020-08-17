@@ -621,17 +621,19 @@ dt, dd {
 .details_menu_main {
     display: flex;
     margin-top:0;
-    padding-left:50px;
+    /*padding-left:50px;*/
+    align-items:center; 
+    text-align:center;
 }
 
 .details_menu {
-    width: 10%;
+    width: 50%;
     background-color: var(--white-color);
     border: none;
     padding: 12px;
     color: var(--darkblue-color);
     margin: 10px;
-    margin-left: 50px;
+/*    margin-left: 50px;*/
     margin-top:0;
     font-size: 16px;
     box-shadow: 0 0 15px var(--deepskyblue-color);

@@ -223,7 +223,7 @@ namespace ConvocaApp.Controllers
             {
                 var eventoVM = _context.Eventos.Find(id);
 
-                if (eventoVM != null)
+                if(eventoVM != null)
                 {
                     eventoVM.category = datosUpdate.category;
                     eventoVM.sex = datosUpdate.sex;
@@ -241,15 +241,12 @@ namespace ConvocaApp.Controllers
 
                     eventoVM.time = datosUpdate.hour + " : " + datosUpdate.minute + " - " + datosUpdate.meridian;
 
-
-                    // TODO: Add insert logic here
-                    //_context.Eventos.Add(eventoVM);
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
                 else
+            
                     return NotFound();
-
                 // TODO: Add update logic here                
             }
             catch
@@ -257,6 +254,63 @@ namespace ConvocaApp.Controllers
                 return View();
             }
         }
+        //if (eventoVM != null)
+        //{
+        //    var eventoVMupdated = new EventsViewModel();
+        //    eventoVMupdated.category = datosUpdate.category;
+        //    eventoVMupdated.sex = datosUpdate.sex;
+        //    eventoVMupdated.reserve = datosUpdate.reserve;
+        //    eventoVMupdated.date = datosUpdate.date;
+        //    eventoVMupdated.cost = datosUpdate.cost;
+        //    eventoVMupdated.paymment = datosUpdate.paymment;
+        //    eventoVMupdated.hour = datosUpdate.hour;
+        //    eventoVMupdated.minute = datosUpdate.minute;
+        //    eventoVMupdated.meridian = datosUpdate.meridian;
+        //    eventoVMupdated.Id = datosUpdate.Id;
+
+        //    eventoVMupdated.place_id = datosUpdate.place_id;
+        //    eventoVMupdated.sport_id = datosUpdate.sport_id;
+
+        //    eventoVMupdated.time = datosUpdate.hour + " : " + datosUpdate.minute + " - " + datosUpdate.meridian;
+
+        //    eventoVMupdated.place_id = datosUpdate.place_id;
+        //    var lugarEvento = _context.Lugares.Find(datosUpdate.place_id);
+        //    datosUpdate.place_name = lugarEvento.name;
+
+        //    eventoVM.sport_id = datosUpdate.sport_id;
+        //    var deporteEvento = _context.Deportes.Find(datosUpdate.sport_id);
+        //    eventoVMupdated.sport_name = deporteEvento.name;
+
+        //    string picture_url;
+
+        //    switch (eventoVMupdated.sport_name)
+        //    {
+        //        case "Baloncesto":
+        //            picture_url = "~/asset/images/baloncesto.jpg";
+        //            break;
+        //        case "Futbol":
+        //            picture_url = "~/asset/images/futbol.jpg";
+        //            break;
+        //        case "Tenis":
+        //            picture_url = "~/asset/images/tenis.jpg";
+        //            break;
+        //        case "Atletismo":
+        //            picture_url = "~/asset/images/atletismo.jpg";
+        //            break;
+        //        case "Ciclismo":
+        //            picture_url = "~/asset/images/ciclismo.jpg";
+        //            break;
+        //        default:
+        //            picture_url = "Sin Imagenes para mostrar";
+        //            break;
+        //    }
+
+        //    eventoVMupdated.picture_url = picture_url;
+
+        // TODO: Add insert logic here
+        //_context.Eventos.Add(eventoVM);
+
+
 
         // GET: Events/Delete/5
         public IActionResult Delete(int? id)
