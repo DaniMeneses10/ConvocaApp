@@ -15,7 +15,7 @@
         <ul >
             @foreach (var item in Model)
             {
-            <li class="test">
+            <li class="events_border">
                 <div class="event_item">
 
 
@@ -23,15 +23,15 @@
 
                     <div class="event_details_list">
                         <h2>Deporte: @Html.DisplayFor(modelItem => item.sport_name)</h2>
-                        <br />
+                        
                         <h3>Lugar del Evento: @Html.DisplayFor(modelItem => item.place_name)</h3>
-                        <br />
+                        
                         <h3>Fecha del evento: @Html.DisplayFor(modelItem => item.date)</h3>
-                        <br />
+                        
                         <h3>Hora: @Html.DisplayFor(modelItem => item.time)</h3>
-                        <br />
+                        
                         <h3>Costo: @Html.DisplayFor(modelItem => item.cost)</h3>
-                        <br />                        
+                        
                         <h4>@Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ })</h4>
                     </div>
 
