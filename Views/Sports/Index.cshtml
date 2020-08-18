@@ -9,47 +9,41 @@
 <section class="header_login">
     <h1>Lista de Deportes</h1>
 </section>
-<table class="sports_table">
-    <thead>
-        <tr>
-            <th>
-                Deporte
-            </th>
-            <th>
-                Número de Jugadores
-            </th>
-            <th>
-                Accesorios
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+
+
+    <table class="sports_table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.playerNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.accesories)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>*@
-                @*<td>
-                    @Html.ActionLink("Editar", "Edit", new { item.Id /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Borrar Deporte", "Delete", new { item.Id/* id=item.PrimaryKey */ })
-                </td>*@
+                <th>
+                    Deporte
+                </th>
+                <th>
+                    Número de Jugadores
+                </th>
+                <th>
+                    Accesorios
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
-<br />
-<div class="sports_menu">
-    <a href="https://localhost:44304/Convoca/Index"> Home </a>
-</div>
-<br />
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.playerNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.accesories)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+<section class="sport-list">
+    <div class="details_menu_main_sports">
+        <a class="botons" href="https://localhost:44304/Convoca/Index"> Home </a>
+    </div>
+</section>

@@ -530,6 +530,51 @@ tr:hover td{
     cursor: pointer;
     color: var(--white-color);
 }
+
+.details_menu_main_sports {
+    display: flex;
+    margin-top: 0;
+    /*padding-left:50px;*/
+    align-items: center;
+    text-align: center;
+}
+
+.sport-list{
+    align-items:center;
+    text-align:center;
+     
+
+}
+
+.sport-list a {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+    .sport-list a:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+        text-decoration: none;
+    }
+
+.sport-list .botons {
+    width: 10%;
+    background-color: var(--white-color);
+    border: none;
+    padding: 12px;
+    color: var(--darkblue-color);
+    margin: 0px 0 0 900px;
+    font-size: 16px;
+    box-shadow: 0 0 15px var(--deepskyblue-color);
+    border-radius: 10px;
+}
+
+    .sport-list .botons:hover {
+        background-color: var(--deepskyblue-color);
+        cursor: pointer;
+        color: var(--white-color);
+    }
 /*//////////////////////  PLACES TABLE - INDEX   //////////////////////*/
 
 .places_table {

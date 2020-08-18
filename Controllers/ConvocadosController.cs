@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ConvocaApp.Data;
 using ConvocaApp.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ConvocaApp.Controllers
 {
@@ -38,22 +40,30 @@ namespace ConvocaApp.Controllers
         }
 
         // GET: Convocados/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
             return View();
         }
+
 
         // POST: Convocados/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ConvocadosModel convocadosModel)
+        public IActionResult Create(ConvocadosModel convocados)
         {
             try
             {
+                var convocadosEvento = new ConvocadosModel();
+
+                convocadosEvento.event_id = convocados.Id;
+
+
+                convocadosEvento.user_id = convocados.user_id;
+
                 // TODO: Add insert logic here
-                _context.Convocados.Add(convocadosModel);
+                _context.Convocados.Add(convocadosEvento);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
@@ -63,6 +73,13 @@ namespace ConvocaApp.Controllers
                 return View();
             }
         }
+
+
+
+
+
+
+
 
         // GET: Convocados/Edit/5
         public IActionResult Edit(int? id)

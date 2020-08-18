@@ -23,16 +23,17 @@
 
                     <div class="event_details_list">
                         <h2>Deporte: @Html.DisplayFor(modelItem => item.sport_name)</h2>
-                        
+
                         <h3>Lugar: @Html.DisplayFor(modelItem => item.place_name)</h3>
-                        
+
                         <h3>Fecha: @Html.DisplayFor(modelItem => item.date)</h3>
-                        
+
                         <h3>Hora: @Html.DisplayFor(modelItem => item.time)</h3>
-                        
+
                         <h3>Costo: @Html.DisplayFor(modelItem => item.cost)</h3>
-                        
+
                         <h4>@Html.ActionLink("Detalles", "Details", new { item.Id/* id=item.PrimaryKey */ })</h4>
+                        <h4>@Html.ActionLink("Participar", "Create","Convocados", new { item.Id/* id=item.PrimaryKey */ })</h4>
                     </div>
 
 
