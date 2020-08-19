@@ -36,9 +36,9 @@ namespace ConvocaApp.Controllers
             var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
 
             var usuario = _context.Usuarios.Where(x => x.Id == UserIdLogueado1).FirstOrDefault();
-            var avion = usuario;
+          
 
-            var userdetails = new CuentaModel(avion);
+            var userdetails = new CuentaModel(usuario);
                 userdetails.name = usuario.name;
                 userdetails.age = usuario.age;
                 userdetails.email = usuario.email;

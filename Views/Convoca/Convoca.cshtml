@@ -17,17 +17,20 @@
             <div class="smallEvent">
                 <div class="smallEvent_content">
                     <div class="smallEvent_image1">
-                        <img class="smallEvent_image" src="~/asset/images/futbol.jpg"/>
-                    </div>                    
-                    <div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Futbol</a></div>                    
+                        <img class="smallEvent_image" src="~/asset/images/futbol.jpg" />
+                    </div>
+                    @*<div id="@ViewBag.Futbol" class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Futbol</a></div>*@
+                    @Html.ActionLink("Futbol", "Index", "Events", new {id = "Futbol" }, new { @class = "smallEvent_sport" })
+                    @*@Html.ActionLink("Participar", "Create", "Convocados", new { Model.Deporte/* id=item.PrimaryKey */}, new { @class = "botons" })*@
                 </div>
             </div>
             <div class="smallEvent">
                 <div class="smallEvent_content">
                     <div class="smallEvent_image1">
-                        <img class="smallEvent_image" src="~/asset/images/ciclismo.jpg"/>
-                    </div>                    
-                    <div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Ciclismo</a></div>                    
+                        <img class="smallEvent_image" src="~/asset/images/ciclismo.jpg" />
+                    </div>
+                    @*<div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Ciclismo</a></div>*@
+                    @Html.ActionLink("Ciclismo", "Index", "Events", new { id = "Ciclismo" }, new { @class = "smallEvent_sport" })
                 </div>
             </div>
             <div class="smallEvent">
@@ -35,34 +38,35 @@
                     <div class="smallEvent_image1">
                         <img class="smallEvent_image" src="~/asset/images/atletismo.jpg" />
                     </div>
-                    <div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Atletismo</a></div>                    
+                    @*<div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Atletismo</a></div>*@
+                    @Html.ActionLink("Atletismo", "Index", "Events", new { id = "Atletismo" }, new { @class = "smallEvent_sport" })
                 </div>
             </div>
             <div class="smallEvent">
                 <div class="smallEvent_content">
                     <div class="smallEvent_image1">
-                        <img class="smallEvent_image" src="~/asset/images/baloncesto.jpg"/>
-                    </div>                    
-                    <div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Baloncesto</a></div>                    
+                        <img class="smallEvent_image" src="~/asset/images/baloncesto.jpg" />
+                    </div>
+                    @*<div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Baloncesto</a></div>*@
+                    @Html.ActionLink("Baloncesto", "Index", "Events", new { id = "Baloncesto" }, new { @class = "smallEvent_sport" })
                 </div>
             </div>
             <div class="smallEvent">
                 <div class="smallEvent_content">
                     <div class="smallEvent_image1">
-                        <img class="smallEvent_image" src="~/asset/images/tenis.jpg"/>
-                    </div>                    
-                    <div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Tenis</a></div>                    
+                        <img class="smallEvent_image" src="~/asset/images/tenis.jpg" />
+                    </div>
+                    @*<div class="smallEvent_sport"><a href="https://localhost:44304/Events/Index" target="_blank">Tenis</a></div>*@
+                    @Html.ActionLink("Tenis", "Index", "Events", new { id = "Tenis" }, new { @class = "smallEvent_sport" })
                 </div>
             </div>            
         </section>
         <br />
         <br />
         <section class="smallEvent_button">
-            <a href="https://localhost:44304/Events/Index" target="_blank">Mas Eventos</a>
+            @*<a href="https://localhost:44304/Events/Index" target="_blank">Mas Eventos</a>*@
+            @Html.ActionLink("Todos los eventos", "Index", "Events", new { id = "AllEvents" }, new { @class = "smallEvent_button" })
         </section>
-
-
-
 
 
         <section class="logins">

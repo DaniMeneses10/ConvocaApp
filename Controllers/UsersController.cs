@@ -30,18 +30,9 @@ namespace ConvocaApp.Controllers
 
 
         public ActionResult Index()
-        {
-            try
-            {
-                var usuarios = _context.Usuarios.ToList<UsersModel>();
-                return View(usuarios);
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-            
+        { 
+            var usuarios = _context.Usuarios.ToList<UsersModel>();
+            return View(usuarios);
         }
         ///
  

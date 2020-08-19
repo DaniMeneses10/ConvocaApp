@@ -9,9 +9,11 @@ using ConvocaApp.Data;
 using ConvocaApp.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ConvocaApp.Controllers
 {
+    [Authorize]
     public class ConvocadosController : Controller
     {
         private readonly ConvocaAppContext _context;
@@ -27,6 +29,9 @@ namespace ConvocaApp.Controllers
             var convocadosModel = _context.Convocados.ToList<ConvocadosModel>();
             return View(await _context.Convocados.ToListAsync());
         }
+
+
+
 
         // GET: Convocados/Details/5
         public IActionResult Details(int? id)
@@ -59,26 +64,25 @@ namespace ConvocaApp.Controllers
 
                 convocadosEvento.event_id = convocados.Id;
 
+                var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
 
-                convocadosEvento.user_id = convocados.user_id;
+                var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
+
+                convocadosEvento.user_id = UserIdLogueado1;
+
 
                 // TODO: Add insert logic here
                 _context.Convocados.Add(convocadosEvento);
                 _context.SaveChanges();
 
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","Events");
             }
             catch
             {
                 return View();
             }
         }
-
-
-
-
-
-
 
 
         // GET: Convocados/Edit/5

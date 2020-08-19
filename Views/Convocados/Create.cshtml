@@ -3,16 +3,16 @@
 @{
     ViewData["Title"] = "Index";
     //Layout = "~/Views/Convocados";
+    Layout = "_StartApp";
 }
 
-<h1>Create</h1>
+<section class="header_login">
+    <h1>Participar en este evento</h1>
+</section>
 
-<h4>ConvocadosModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@*<section class="form-register" asp-action="Create">*@    
+        <form class="form-register" asp-action="Create">
+            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="event_id" class="control-label"></label>
                 <input asp-for="event_id" class="form-control" />
@@ -22,17 +22,18 @@
                 <label asp-for="user_id" class="control-label"></label>
                 <input asp-for="user_id" class="form-control" />
                 <span asp-validation-for="user_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+            </div>*@
+            
+                <div class="details_menu_main">
+                    <a class="botons" href="https://localhost:44304/Convoca/Index"> Home </a>
+                    <input type="submit" value="Quiero participar" class="botons" />
+                </div>
+        </form>    
+@*</section>*@
 
-<div>
+@*<div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
