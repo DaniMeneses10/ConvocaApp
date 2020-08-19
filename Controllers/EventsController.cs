@@ -145,30 +145,45 @@ namespace ConvocaApp.Controllers
                 
                 eventoVM.picture_url = picture_url;
 
-                switch (id)
+
+                if(id == eventoVM.sport_name)
                 {
-                    case "Baloncesto":
-                        eventosVMlist.Add(eventoVM);
-                        break;
-                    case "Futbol":
-                        //eventosVMlist.Add(eventoVM);
-                        break;
-                    case "Tenis":
-                        //eventosVMlist.Add(eventoVM);
-                        break;
-                    case "Atletismo":
-                        //eventosVMlist.Add(eventoVM);
-                        break;
-                    case "Ciclismo":
-                        //eventosVMlist.Add(eventoVM);
-                        break;
-                    case "AllEvents":
-                        //eventosVMlist.Add(eventoVM);
-                        break;
-                    default:
-                        //eventosVMlist.Add(eventoVM);
-                        break;
+                    eventosVMlist.Add(eventoVM);
                 }
+                else if(id == "AllEvents")
+                {
+                    eventosVMlist.Add(eventoVM);
+                }
+                //else
+                //{
+                //    return View("Lo siento, No hay eventos disponibles");
+                //}
+
+
+                //switch (id)
+                //{
+                //    case "Baloncesto":
+                //        eventosVMlist.Add(eventoVM);
+                //        break;
+                //    case "Futbol":
+                //        //eventosVMlist.Add(eventoVM);
+                //        break;
+                //    case "Tenis":
+                //        //eventosVMlist.Add(eventoVM);
+                //        break;
+                //    case "Atletismo":
+                //        //eventosVMlist.Add(eventoVM);
+                //        break;
+                //    case "Ciclismo":
+                //        //eventosVMlist.Add(eventoVM);
+                //        break;
+                //    case "AllEvents":
+                //        //eventosVMlist.Add(eventoVM);
+                //        break;
+                //    default:
+                //        //eventosVMlist.Add(eventoVM);
+                //        break;
+                //}
 
                 //eventosVMlist.Add(eventoVM);
 
