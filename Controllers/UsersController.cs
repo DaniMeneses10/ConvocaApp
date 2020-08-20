@@ -80,6 +80,26 @@ namespace ConvocaApp.Controllers
             return principal;
         }
 
+
+        public ActionResult Logout()
+        {
+
+            //var a = User;
+            //var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
+            //var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
+
+            var user = User as ClaimsPrincipal;
+            var identity = user.Identity as ClaimsIdentity;
+            var claim = (from c in user.Claims
+                         where c.Value == "somenewrole"
+                         select c).Single();
+
+            identity.RemoveClaim(claim);
+
+            //FormsAuthentication.SignOut();
+            return RedirectToAction("Convoca", "Convoca");
+        }
+
         ///
         ///
         ///
