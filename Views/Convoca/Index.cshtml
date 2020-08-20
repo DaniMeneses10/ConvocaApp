@@ -20,18 +20,20 @@
                             <a href="https://localhost:44304/Cuenta/Index">Cuenta</a>
                         </li>
                         <li>
-                            <a href="https://localhost:44304/places/Index">Mis eventos</a>
+                            <a href="https://localhost:44304/Events/Index">Mis eventos</a>
                         </li>
                         <li>
                             <a href="https://localhost:44304/sports/Index">Deportes</a>
                         </li>
                         <li>
-                            @Html.ActionLink("Salir", "Logout", "Users", new { id = "Futbol" }, new { @class = "smallEvent_sport" })
+                            @Html.ActionLink("Salir", "Logout", "Users")
+                            @*@Html.ActionLink("Salir", "Logout", "Users", new { id = "Futbol" })*@
                         </li>
-                        
+                        @*new { @class = "smallEvent_sport" }*@
+
                         @*<li>
                             <a href="https://localhost:44304/places/Index">Lugares</a>
-                        </li>*@                    
+                        </li>*@
                     </ul>
                 </div>
             </div>

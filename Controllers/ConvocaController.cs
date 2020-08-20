@@ -11,8 +11,8 @@ namespace ConvocaApp.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.CosaDinamica = "Es para probar y Llamar cosas";
-            ViewBag.FechaActual = System.DateTime.Today;
+            //ViewBag.CosaDinamica = "Es para probar y Llamar cosas";
+            //ViewBag.FechaActual = System.DateTime.Today;
             return View();
 
         }

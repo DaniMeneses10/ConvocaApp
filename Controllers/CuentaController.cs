@@ -21,8 +21,6 @@ namespace ConvocaApp.Controllers
     public class CuentaController : Controller
     {
         private readonly ConvocaAppContext _context;
-
-
         public CuentaController(ConvocaAppContext context)
         {
             _context = context;
