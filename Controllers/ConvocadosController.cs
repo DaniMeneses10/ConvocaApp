@@ -74,9 +74,9 @@ namespace ConvocaApp.Controllers
                 // TODO: Add insert logic here
                 _context.Convocados.Add(convocadosEvento);
                 _context.SaveChanges();
-
+           
                 //return RedirectToAction(nameof(Index));
-                return RedirectToAction("Index","Events");
+                return RedirectToAction("Index","Events",new { id="AllEvents" });
             }
             catch
             {

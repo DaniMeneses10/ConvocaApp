@@ -6,35 +6,57 @@
     Layout = "_StartApp";
 }
 
+    @*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>*@
+
 <section class="header_login">
     <h1>Participar en este evento</h1>
 </section>
 
-@*<section class="form-register" asp-action="Create">*@    
-        <form class="form-register" asp-action="Create">
-            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="event_id" class="control-label"></label>
-                <input asp-for="event_id" class="form-control" />
-                <span asp-validation-for="event_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="user_id" class="control-label"></label>
-                <input asp-for="user_id" class="form-control" />
-                <span asp-validation-for="user_id" class="text-danger"></span>
-            </div>*@
-            
-                <div class="details_menu_main">
-                    <a class="botons" href="https://localhost:44304/Convoca/Index"> Home </a>
-                    <input type="submit" value="Quiero participar" class="botons" />
-                </div>
-        </form>    
-@*</section>*@
 
-@*<div>
-    <a asp-action="Index">Back to List</a>
-</div>*@
+<body>
+    <form class="form-register" asp-action="Create">
+        <div class="details_menu_main">
+            <a class="botons" href="https://localhost:44304/Convoca/Index"> Regresar </a>
+            <input type="submit" value="Quiero participar" class="botons" onclick="msgConfirm()" />
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+            @* El problema es el tipo del input, puede ser button y cambia. Tener en cuenta 
+                La section tambien afecta*@
+
+            @*<input type="submit" value="Quiero participar" class="botons" onclick="msgConfirm()" />*@
+            @*<input type="submit" value="Quiero participar" class="botons" onclick="javascript:alert('FELICITACIONES!!! Has sido agregado a este Evento!');"/>*@
+            @*<input type="submit" value="Quiero participar" class="botons" onclick= "swal('Good job!','You clicked the button!','success')"/>*@
+        </div>
+
+    </form>
+
+    @*     <form class="form-register" asp-action="Create">
+        <div class="details_menu_main">
+            <a class="botons" href="https://localhost:44304/Convoca/Index"> Home </a>
+            <input type="button" value="Quiero participar" class="botons" onclick="msgConfirm()" />
+            @*<input type="submit" value="Quiero participar" class="botons" onclick="msgConfirm()" />*@
+    @*<input type="submit" value="Quiero participar" class="botons" onclick="javascript:alert('FELICITACIONES!!! Has sido agregado a este Evento!');"/>*@
+    @*<input type="submit" value="Quiero participar" class="botons" onclick= "swal('Good job!','You clicked the button!','success')"/>*@
+    @*</div>
+
+        </form>  *@
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        function msgConfirm() {
+            swal("Has sido agregado al evento", "Esperamos que lo disfrutes!", "success");
+
+            //swal(
+            //    { title: 'Estas seguro?', showCancelButton: true }, function (isConfirm) {
+            //        if (isConfirm) {
+            //            // handle confirm
+            //        } else {
+            //            // handle all other cases
+            //        }
+            //    }
+            //)
+        }
+    </script>
+</body>
+

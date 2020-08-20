@@ -25,8 +25,11 @@
 
     <div class="details_menu_main">
         @*<a class="botons" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>*@
-        @Html.ActionLink("Participar", "Create", "Convocados", new { Model.Id/* id=item.PrimaryKey */} , new {@class = "botons"})
+        @Html.ActionLink("Participar", "Create", "Convocados", new { Model.Id/* id=item.PrimaryKey */}, new { @class = "botons" })
         <a class="botons" asp-action="Index">Regresar</a>
         <a class="botons" href="https://localhost:44304/Convoca/Index"> Home </a>
     </div>
+
+
+
 </section>

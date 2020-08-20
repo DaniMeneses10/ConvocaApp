@@ -1,23 +1,26 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Convoca</title>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convoca</title>
 
-        <link rel="icon" type="image/jpg" href="~/asset/images/logoconvoca.jpg" />
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" type="image/jpg" href="~/asset/images/logoconvoca.jpg" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @*<link rel="stylesheet" href="~/dist/sweetalert2.css" type="text/css" >*@
+    @*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>*@
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
+
+
+</head>
+<body>
+
+
+    @RenderSection("scripts", required: false)
+    @RenderBody()
     
 
-
-    </head>
-    <body>  
-
-
-        @RenderSection("scripts", required: false)
-        @RenderBody()
-
-
-    </body>
+</body>
 </html>

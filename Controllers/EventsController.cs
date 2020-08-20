@@ -153,43 +153,16 @@ namespace ConvocaApp.Controllers
                 else if(id == "AllEvents")
                 {
                     eventosVMlist.Add(eventoVM);
-                }
-                //else
-                //{
-                //    return View("Lo siento, No hay eventos disponibles");
-                //}
-
-
-                //switch (id)
-                //{
-                //    case "Baloncesto":
-                //        eventosVMlist.Add(eventoVM);
-                //        break;
-                //    case "Futbol":
-                //        //eventosVMlist.Add(eventoVM);
-                //        break;
-                //    case "Tenis":
-                //        //eventosVMlist.Add(eventoVM);
-                //        break;
-                //    case "Atletismo":
-                //        //eventosVMlist.Add(eventoVM);
-                //        break;
-                //    case "Ciclismo":
-                //        //eventosVMlist.Add(eventoVM);
-                //        break;
-                //    case "AllEvents":
-                //        //eventosVMlist.Add(eventoVM);
-                //        break;
-                //    default:
-                //        //eventosVMlist.Add(eventoVM);
-                //        break;
-                //}
-
-                //eventosVMlist.Add(eventoVM);
+                }               
 
             }
 
-            return View(eventosVMlist);
+            if (eventosVMlist.Count != 0)
+                return View(eventosVMlist);
+            else
+                return NotFound("No hay eventos");
+
+            //return View(eventosVMlist);
             
             //return View(eventos);           
         }
