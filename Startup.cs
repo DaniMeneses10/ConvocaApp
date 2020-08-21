@@ -64,7 +64,7 @@ namespace ConvocaApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Convoca}/{action=Convoca}/{id?}");
+                    pattern: "{controller=Convoca}/{action=StartApp}/{id?}");
             });
         }
     }

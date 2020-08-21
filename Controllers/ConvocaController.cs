@@ -10,22 +10,30 @@ namespace ConvocaApp.Controllers
     public class ConvocaController : Controller
     {
         public IActionResult Index()
-        {
-            //ViewBag.CosaDinamica = "Es para probar y Llamar cosas";
-            //ViewBag.FechaActual = System.DateTime.Today;
+        {            
             return View();
-
         }
 
 
         public IActionResult Convoca()
         {
-            var d1 = new ConvocaModel();
-                d1.Deporte = "Futbol";
-                d1.Lugar = "Cedritos";
-                d1.Jugadores = "10";
+            return View();
+        }
 
-            return View(d1);
+        public IActionResult StartApp()
+        {
+            var a = User;
+            var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
+            //var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
+
+            if (UserIdLogueado != null)
+            {
+                return RedirectToAction("Index", "Convoca");
+            }
+            else
+            {
+                return RedirectToAction("Convoca", "Convoca");
+            }
         }
     }
 }
