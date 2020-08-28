@@ -89,17 +89,23 @@ namespace ConvocaApp.Controllers
                 else if(id == "AllEvents")
                 {
                     eventosVMlist.Add(eventoVM);
-                }               
+                }    
+                else if(id == null)
+                {
+                    //return RedirectToAction("Events", "Index");
+                    return RedirectToAction("Convoca", "Convoca");
+
+                }
 
             }
 
-            if (eventosVMlist.Count != 0)
-                return View(eventosVMlist);
-            else
-                return NotFound("No hay eventos");
+            //if (eventosVMlist.Count != 0)
+            //    return View(eventosVMlist);
+            //else
+            //    return NotFound("No hay eventos");
 
-            //return View(eventosVMlist);
-            
+            return View(eventosVMlist);
+
             //return View(eventos);           
         }
 

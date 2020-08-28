@@ -6,57 +6,24 @@
     Layout = "_StartApp";
 }
 
-    @*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>*@
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/js/site.js"></script>
 
 <section class="header_login">
     <h1>Participar en este evento</h1>
 </section>
 
-
 <body>
-    <form class="form-register" asp-action="Create">
+    <form id="my-form" class="form-register" asp-action="Create">
         <div class="details_menu_main">
             <a class="botons" href="https://localhost:44304/Convoca/Index"> Regresar </a>
-            <input type="submit" value="Quiero participar" class="botons" onclick="msgConfirm()" />
-
-            @* El problema es el tipo del input, puede ser button y cambia. Tener en cuenta 
-                La section tambien afecta*@
-
-            @*<input type="submit" value="Quiero participar" class="botons" onclick="msgConfirm()" />*@
-            @*<input type="submit" value="Quiero participar" class="botons" onclick="javascript:alert('FELICITACIONES!!! Has sido agregado a este Evento!');"/>*@
-            @*<input type="submit" value="Quiero participar" class="botons" onclick= "swal('Good job!','You clicked the button!','success')"/>*@
+            <input id="test" type="submit" value="Quiero participar" class="botons"/>            
         </div>
-
-    </form>
-
-    @*     <form class="form-register" asp-action="Create">
-        <div class="details_menu_main">
-            <a class="botons" href="https://localhost:44304/Convoca/Index"> Home </a>
-            <input type="button" value="Quiero participar" class="botons" onclick="msgConfirm()" />
-            @*<input type="submit" value="Quiero participar" class="botons" onclick="msgConfirm()" />*@
-    @*<input type="submit" value="Quiero participar" class="botons" onclick="javascript:alert('FELICITACIONES!!! Has sido agregado a este Evento!');"/>*@
-    @*<input type="submit" value="Quiero participar" class="botons" onclick= "swal('Good job!','You clicked the button!','success')"/>*@
-    @*</div>
-
-        </form>  *@
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-
-    <script>
-        function msgConfirm() {
-            swal("Has sido agregado al evento", "Esperamos que lo disfrutes!", "success");
-
-            //swal(
-            //    { title: 'Estas seguro?', showCancelButton: true }, function (isConfirm) {
-            //        if (isConfirm) {
-            //            // handle confirm
-            //        } else {
-            //            // handle all other cases
-            //        }
-            //    }
-            //)
-        }
-    </script>
+    </form>    
 </body>
+
+
+
 

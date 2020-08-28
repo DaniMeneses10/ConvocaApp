@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Cors;
 
 namespace ConvocaApp.Controllers
 {
@@ -89,6 +90,14 @@ namespace ConvocaApp.Controllers
 
             //FormsAuthentication.SignOut();
             return RedirectToAction("Convoca", "Convoca");
+        }
+
+        public ActionResult TraerEventos()
+        {
+            var a = _context.Eventos.ToList();
+
+            //FormsAuthentication.SignOut();
+            return Json(a);
         }
 
 
