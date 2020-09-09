@@ -1,4 +1,5 @@
 ﻿using ConvocaApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace ConvocaApp.Controllers
 {
     public class ConvocaController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {            
             return View();

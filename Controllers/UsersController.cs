@@ -13,6 +13,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ConvocaApp.Controllers
 {
@@ -29,7 +30,7 @@ namespace ConvocaApp.Controllers
             
         }
 
-
+       
         public ActionResult Index()
         { 
             var usuarios = _context.Usuarios.ToList<UsersModel>();
