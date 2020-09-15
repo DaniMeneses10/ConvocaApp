@@ -17,4 +17,15 @@
         });
     }
 
+    //$('.controls').first().slideDown();
+
+    //$('h4').on('click', function (evt) {
+    //    evt.preventDefault();
+    //    $('.controls').not(this).each(function () {
+    //        $(this).slideUp();
+    //    });
+
+    //    $(this).siblings('.controls').slideToggle();
+    //})
+
 });

@@ -7,7 +7,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-@*<script src="~/js/login.js"></script>*@
+<script src="~/js/login.js"></script>
+
 <body>
 
     <section class="header_login">
@@ -15,16 +16,13 @@
     </section>
     <section class="form-register">
         <form asp-action="Login">
-            @*<label Class="controls" asp-for="email">Email</label>*@
-            <input asp-for="email" class="controls" type="email" placeholder="Email" />
-            @*<label Class="controls" asp-for="password">Contraseña</label>*@
-            <input asp-for="password" Class="controls" type="password" placeholder="Password" />
+            <input id="email" asp-for="email" class="controls" type="email" placeholder="Email" />
+            <input id="password" asp-for="password" Class="controls" type="password" placeholder="Password" />
             <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-            <input id="test" class="botons" type="submit" value="Login" />
 
+            @*<input id="login" class="botons" type="submit" value="Login" />*@
+            <input id="login" class="botons" type="button" value="Login" />
 
-            @*<input asp-action="create" class="botons" value="Registrate" />*@
-            @*<a class="botons" href="https://localhost:44304/users/create" target="_blank">Registrate</a>*@
             <a class="botons" href="https://localhost:44304/users/create" target="_blank">Registrate</a>
         </form>
         

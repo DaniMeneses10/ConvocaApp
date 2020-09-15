@@ -49,26 +49,66 @@ namespace ConvocaApp.Controllers
         }
 
         //POST: User/Login
+        /// //// ////// //////// ///////// //////////
         [HttpPost]
-        public ActionResult Login(LoginViewModel objLoginModel)
+        public JsonResult Login(LoginViewModel objLoginModel)
         {
             var usuarios = _context.Usuarios.ToList<UsersModel>();
 
             var usuario = usuarios.Where(user => user.email == objLoginModel.email && user.password == objLoginModel.password).FirstOrDefault();
 
-            if (usuario == null) 
+            var dataLogin = new loginOkModel();
+
+            try
             {
-                ModelState.AddModelError("Error", "Email y Password no coinciden");
-                return View();                    
-            }
-            else 
+                if (usuario == null)
+                {
+                    ModelState.AddModelError("Error", "Email y Password no coinciden");
+                    //return View();
+                    dataLogin.ok = false;
+                }
+                else
+                {
+                    var principal = CreatePrincipal(usuario);
+                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                    //return RedirectToAction("Index", "Convoca");
+                    dataLogin.ok = true;
+                }
+            }                
+            catch
             {
-                var principal = CreatePrincipal(usuario);
-                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                //Session["Email"]
-                return RedirectToAction("Index", "Convoca");
+                dataLogin.ok = false;
             }
+
+            return Json(dataLogin);
         }
+
+
+       
+        /// //// ////// //////// ///////// //////////
+
+                //[HttpPost]
+        //public ActionResult Login(LoginViewModel objLoginModel)
+        //{
+        //    var usuarios = _context.Usuarios.ToList<UsersModel>();
+
+        //    var usuario = usuarios.Where(user => user.email == objLoginModel.email && user.password == objLoginModel.password).FirstOrDefault();
+
+        //    if (usuario == null) 
+        //    {
+
+        //        ModelState.AddModelError("Error", "Email y Password no coinciden");
+        //        return View();                    
+        //    }
+        //    else 
+        //    {
+        //        var principal = CreatePrincipal(usuario);
+
+        //        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+        //        //Session["Email"]
+        //        return RedirectToAction("Index", "Convoca");
+        //    }
+        //}
 
         private ClaimsPrincipal CreatePrincipal(UsersModel user)
         {
