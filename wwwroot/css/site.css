@@ -4,11 +4,13 @@
     --white-color: white;
     --deepskyblue-color: #1f53c5;
     --lightslategray-Color: lightslategray;
+    --black-color :black;
 }
 
 
-body{
-    background-color:var(--darkblue-color);
+body {
+    background-color: var(--darkblue-color);
+    /*background-color: var(--white-color);*/
 }
     /*/////////////////////////////////////////////////////////////////*/
     /*/////////////////////////////////////////////////////////////////*/
@@ -248,18 +250,18 @@ body{
     /*/////////////////////////////////////////////////////////////////*/
     /*/////////////////////////////////////////////////////////////////*/
     /*/////////////////////////////////////////////////////////////////*/
-    /*//////////////////        INDEX          ////////////////////////*/
+    /*/////////////////      CONVOCA - INDEX    ///////////////////////*/
     /*/////////////////////////////////////////////////////////////////*/
     /*/////////////////////////////////////////////////////////////////*/
     /*/////////////////////////////////////////////////////////////////*/
     /*/////////////////////////////////////////////////////////////////*/
 
 .container {
-    width: 1500px;
-    margin:0 auto;
+    width: 150%;
+    /*margin:0 auto;*/
     display:inherit;
     justify-content:inherit;
-    height:inherit;
+    /*height:inherit;*/
     align-items: inherit;
 }
 /*//////////////HEADER///////////Nav*/
@@ -274,7 +276,7 @@ nav {
     align-items: center;
     background-color: var(--white-color);
     padding: 30PX;
-    height: 230px;
+    height: 100px;
 }
 
 .header_index {
@@ -282,19 +284,74 @@ nav {
     align-items: center;
     background-color: var(--white-color);
     padding: 30PX;
-    height: 230px;
+    height: 100px;
     display: flex;
 }
 
 .index_mainImage {
     padding: 20px;
-    width: 800px;   
+    width: 300px;   
 }
+
+.menu {
+    text-align: center;
+    align-items: center;
+    padding-top: 10px;
+    margin-left: 5px;
+    display: flex;
+    /*padding-left:200px;*/
+    font-size: 20px;
+}
+
+.cuenta-icon {
+    background-image: url('https://e7.pngegg.com/pngimages/416/62/png-clipart-anonymous-person-login-google-account-computer-icons-user-activity-miscellaneous-computer-thumbnail.png');
+    /*background-repeat: no-repeat;*/
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+}
+
+.misEventos-icon {
+    background-image: url('../asset/images/iconBar/events.png');
+    /*background-repeat: no-repeat;*/
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.deportes-icon {
+    background-image: url('../asset/images/iconBar/sports.png');
+    /*background-repeat: no-repeat;*/
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.exit-icon {
+    background-image: url('../asset/images/iconBar/exit.png');
+    /*background-repeat: no-repeat;*/
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
 
     nav ul{
         display:flex;
-        padding-left:200px;
-        font-size:30px;
+        /*padding-left:200px;*/
+        font-size:20px;
     }
         nav li{
             padding-left:20px;
@@ -305,54 +362,80 @@ nav {
                 text-decoration: none;
             }
             nav li a:hover{
-                color:blue; 
+                color:gray; 
             }
 
+.line-split {
+    border-top: 1px solid var(--lightslategray-Color);
+    padding:0px;
+    margin:0;
+}
 /*//////////////MAIN SECTION - HERO//////////////*/
 .main_section {
-    padding: 20px;
+    padding-top: 0px;
     display: flex;
-    height:350px;
+    height: 100px;    
+    margin: 0px;
+    width: 100%;
+    text-align: center;
     align-items: center;
+    background-color:var(--white-color);
 }
-    .main_image {
-        border-radius: 5px;
-        width:80%;
-        height: 80%;    
-    }
-    .main_comment {
-        color: var(--white-color); 
-    }
+
+
+.main_comment {
+    color: var(--black-color);
+    margin-left:350px;
+
+}
     .main_comment strong{
         color:var(--deepskyblue-color);
     }
 
   
 /*////////////////////MENU - CONTENT EVENTS///////////////////*/
+
 .events {
     justify-content: center;
     text-align: center;
     align-items: center;
     display: flex;
-    margin: 30px; 
+    margin: 0px;
+    margin-top: 0px;
+    background-color: var(--white-color);
 }
 
     .event {
-        padding: 20px;
+        padding: 30px;
+        margin: 20px;
+        /*height: 600px;*/
+        /*width: 600px;*/
     }
-        .event .event_content .event_image {
-            padding:20px;
-            border-radius:5px;
+    .event_content h1 {
+        padding-bottom: 20px;
+        font-size: 50px;
+   
+    }
+
+    .event_content p {
+        padding: 35px;
+        font-size: 30px
+    }
+        .event-image {
+            padding: 0px;
+            border-radius: 10px;
+            width : 500px;
+            height: 300px;
         }
-        .event .event_content {
+        .event_content {
+            width:700px;
+            height:700px;
             background-color: var(--white-color);
-            padding: 30px;
+            padding: 50px;
             border-radius:5px;
             box-shadow: 0 0 10px var(--deepskyblue-color);
         }
-            .event .event_content p{
-                padding:10px;
-            }
+            
 
 
 
@@ -396,22 +479,27 @@ nav {
 }
     .social_link.twitter {
         background-image: url('../asset/images/twitter.png');
+        margin-left: 30px;
     }
 
     .social_link.facebook {
         background-image: url('../asset/images/Facebook.png');
+        margin-left: 30px;
     }
 
     .social_link.github {
         background-image: url('../asset/images/github.png');
+        margin-left: 30px;
     }
 
     .social_link.instagram {
         background-image: url('../asset/images/Instagram.jpg');
+        margin-left: 30px;
     }
 
     .social_link.linkedin {
         background-image: url('../asset/images/Linkedin.png');
+        margin-left: 30px;
     }
 .form-email {
     display: inline-block;

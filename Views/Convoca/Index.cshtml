@@ -7,76 +7,71 @@
    
 
     <body>
-     
+
         <nav>
             <div class="container">
                 <section class="header_index">
                     <img class="index_mainImage" src="~/asset/images/convoca/convoca.png" alt="Logo de Convoca" />
                 </section>
-                <div class="menu">
-                    <ul>
-                        <li>
-                            <a href="https://localhost:44304/Cuenta/Index">Cuenta</a>
-                        </li>
-                        <li>
-                            <a href="https://localhost:44304/Events/Index">Mis eventos</a>
-                        </li>
-                        <li>
-                            <a href="https://localhost:44304/sports/Index">Deportes</a>
-                        </li>
-                        <li>
-                            @Html.ActionLink("Salir", "Logout", "Users")
-                            @*@Html.ActionLink("Salir", "Logout", "Users", new { id = "Futbol" })*@
-                        </li>
-                    </ul>
-                </div>
+                <section class="menu">
+                    <a class="cuenta-icon" title="Cuenta" href="https://localhost:44304/Cuenta/Index"></a>
+                    <a class="misEventos-icon" title="Mis Eventos" href="https://localhost:44304/Events/Index"></a>
+                    <a class="deportes-icon" title="Deportes" href="https://localhost:44304/sports/Index"></a>
+                    @*<a class="exit-icon" title="Salir" href="#">@Html.ActionLink("", "Logout", "Users")</a>*@
+                    @*@Html.ActionLink("Salir", "Logout", "Users", new { id = "Futbol" })*@
+                    @*@Html.ActionLink("Salir", "Logout", "Users")*@
+                    @Html.ActionLink("", "Logout", "Users", new object { }, new { @class = "exit-icon", title="Salir" })
+                </section>
             </div>
         </nav>
+        <hr class="line-split"/>
 
-        <section>
-            <div class="container">
-                <div class="main_section">
-                    <h1 class="main_comment">
-                        TUUU...!!! <strong>Estás</strong><br>Convocado!!! <strong>para jugar</strong>
-                        <br>donde quieras<strong>, cuando quieras</strong>
-                    </h1>
-                    <div>
-                        <img class="main_image" src="~/asset/images/general.jpg" alt="Imagen Principal del sitio" />
-                    </div>
-                </div>
-            </div>
-        </section>
+
+        @*<section>*@
+        @*<div class="container">*@
+        <div class="main_section">
+            <h1 class="main_comment">
+                <strong>TUUU...!!! </strong>estás <strong>Convocado!!! para jugar </strong>
+                donde quieras, <strong>cuando quieras</strong>
+            </h1>
+            @*<div>
+                <img class="main_image" src="~/asset/images/general.jpg" alt="Imagen Principal del sitio" />
+            </div>*@
+        </div>
+        @*</div>*@
+        @*</section>*@
 
         @*/////////////MENU - CONTENT EVENTS/////////////  *@
 
-        <div class="container">
-            <div class="events">
-                <div class="event">
-                    <div class="event_content">
-                        <h1>CONVOCA</h1>
-                        <div class="event-image">
-                            <img src="~/asset/images/logo.jpg" width="300" height="200" alt="Imagen de Futbol" />
-                        </div>
-                        <p>Convoca tus equipos, ejercitate, compite!!!</p>
-                        <a class="event_button" href="https://localhost:44304/Events/Create" target="_blank">Crea tu Evento</a>
+        @*<div class="container">*@
+        <div class="events">
+            <div class="event">
+                <div class="event_content">
+                    <h1>CONVOCA</h1>
+                    <div>
+                        <img class="event-image" src="~/asset/images/zidane.gif" alt="Imagen de Futbol" />
                     </div>
+                    <p>Convoca tus equipos, ejercitate, compite!!!</p>
+                    <a class="event_button" href="https://localhost:44304/Events/Create" target="_blank">Crea tu Evento</a>
                 </div>
-                <div class="event">
-                    <div class="event_content">
-                        <h1>CONVOCATORIAS</h1>
-                        <div class="event-image">
-                            <img src="~/asset/images/ciclismo.jpg" width="300" height="200" alt="Imagen de Ciclismo" />
-                        </div>
-                        <p>Quieres competir?... retalos, te están esperando!</p>
-                        <a class="event_button" href="https://localhost:44304/Events/Index/AllEvents" target="_blank">Te están esperando</a>
+            </div>
+            <div class="event">
+                <div class="event_content">
+                    <h1>CONVOCATORIAS</h1>
+                    @*<div class="event-image">*@
+                    <div>
+                        <img class="event-image" src="~/asset/images/convocatorias.gif" alt="Imagen de Ciclismo" />
                     </div>
+                    <p>Quieres competir?... retalos, te están esperando!</p>
+                    <a class="event_button" href="https://localhost:44304/Events/Index/AllEvents" target="_blank">Te están esperando</a>
                 </div>
             </div>
         </div>
+        @*</div>*@
 
 
 
-        
+
 
         <section id="contacto" class="contact">
             <div class="container">

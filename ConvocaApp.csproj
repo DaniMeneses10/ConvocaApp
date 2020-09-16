@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Asset\images\curve.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Asset\images\atletismo1.jpg" />
     <None Include="wwwroot\Asset\images\baloncesto1.jpg" />
     <None Include="wwwroot\Asset\images\ciclismo1.jpg" />
