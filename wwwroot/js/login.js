@@ -11,19 +11,19 @@ $(document).ready(function () {
         var Password = $('#password').val();
         var data = { email: Email, password: Password};
         
-        debugger
+        
 
         $.post(url, data).done(function (dataLogin) {
             console.log(dataLogin)
-            debugger           
+            //debugger           
                         
             if (dataLogin.ok) {                
                 evt.preventDefault();
                 console.log(dataLogin)
-                debugger
+                //debugger
                 window.location.href = "https://localhost:44304/convoca/index";
             } else {
-                debugger
+                //debugger
                 evt.preventDefault();                
                 swal(
                     'Oops!',
