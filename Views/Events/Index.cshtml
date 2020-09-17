@@ -27,7 +27,7 @@
                 <li class="events_border">
                     <div class="event_item">
                         <img class="smallEvent_image" src="@Url.Content(@item.picture_url)" />
-                        <div id ="parent-@item.Id" class="event_details_list">
+                        <div id="parent-@item.Id" class="event_details_list">
                             <h2>Deporte: @Html.DisplayFor(modelItem => item.sport_name)</h2>
                             <h3>Lugar: @Html.DisplayFor(modelItem => item.place_name)</h3>
                             <h3>Fecha: @Html.DisplayFor(modelItem => item.date)</h3>
@@ -38,9 +38,11 @@
                             <label class="controls">Reservación: @Html.DisplayFor(model => item.reserve)</label>
                             <label class="controls">Costo: $@Html.DisplayFor(model => item.cost)</label>
                             <label class="controls">Forma de Pago: @Html.DisplayFor(model => item.paymment)</label>
-                            <h4 id= "@item.Id" style="color:Highlight">Mas detalles</h4>                            
-                            @Html.ActionLink("Participar", "Create", "Convocados", new { item.Id/* id=item.PrimaryKey */}, new { @class = "botons" })
-                            <a class="botons" href="https://localhost:44304/Convoca/Convoca">Regresar</a>                            
+                            @*<h4 class="eventPlus" id= "@item.Id" style="color:Highlight">Mas detalles</h4>*@
+                            <button class="eventPlus" id= "@item.Id" style="color:Highlight">Mas detalles</button>
+
+                            @Html.ActionLink("Participar", "Create", "Convocados", new { item.Id/* id=item.PrimaryKey */}, new { @class = "eventPlus" })
+                            <a class="eventPlus" href="https://localhost:44304/Convoca/Convoca">Regresar</a>
                         </div>
                     </div>
                 </li>

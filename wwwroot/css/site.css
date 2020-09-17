@@ -724,6 +724,25 @@ tr:hover td{
     /*padding-left:40px;*/
 }
 
+    .event_details_list .eventPlus {
+        width: 30%;
+        background-color: var(--white-color);
+        border: none;
+        padding: 10px;
+        color: var(--darkblue-color);
+        margin: auto;
+        font-size: 16px;
+        box-shadow: 0 0 15px var(--deepskyblue-color);
+        border-radius: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+.sport-list .eventPlus:hover {
+    background-color: var(--deepskyblue-color);
+    cursor: pointer;
+    color: var(--white-color);
+}
 
 
 /*//////////////////////  USERS DETAILS   //////////////////////*/
