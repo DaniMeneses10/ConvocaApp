@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
        
-    $('li').find('button').click(function () {        
+    $('li').find('button1').click(function () {        
         var id = this.id
         console.log(id)        
         var $parrafos = $('#parent-' + id).children('label')

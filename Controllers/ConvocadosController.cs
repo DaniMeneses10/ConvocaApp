@@ -45,10 +45,28 @@ namespace ConvocaApp.Controllers
         }
 
         // GET: Convocados/Create
-        public IActionResult Create(int id)
+        //public IActionResult Create(int id)
+        //{
+        //    ConvocadosModel convocados = new ConvocadosModel();
+        //    return View();
+
+        //    return View();
+        //}
+
+
+
+
+        // GET: Convocados/Create
+        public JsonResult Create(int id)
         {
-            return View();
+            var dataLogin = new loginOkModel();
+
+            dataLogin.ok = true;
+
+            return (Json(dataLogin));
         }
+
+
 
 
         // POST: Convocados/Create
@@ -56,8 +74,10 @@ namespace ConvocaApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ConvocadosModel convocados)
+        public JsonResult Create(ConvocadosModel convocados)
         {
+            var dataLogin = new loginOkModel();
+
             try
             {
                 var convocadosEvento = new ConvocadosModel();
@@ -70,19 +90,52 @@ namespace ConvocaApp.Controllers
 
                 convocadosEvento.user_id = UserIdLogueado1;
 
+                
+
 
                 // TODO: Add insert logic here
                 _context.Convocados.Add(convocadosEvento);
                 _context.SaveChanges();
-           
+
+                dataLogin.ok = true;
                 //return RedirectToAction(nameof(Index));
-                return RedirectToAction("Index","Events",new { id="AllEvents" });
+                //return RedirectToAction("Index", "Events", new { id = "AllEvents" });
             }
             catch
             {
-                return View();
+                //return View();
             }
+            return(Json(dataLogin));
         }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Create(ConvocadosModel convocados)
+        //{
+        //    try
+        //    {
+        //        var convocadosEvento = new ConvocadosModel();
+
+        //        convocadosEvento.event_id = convocados.Id;
+
+        //        var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
+
+        //        var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
+
+        //        convocadosEvento.user_id = UserIdLogueado1;
+
+
+        //        // TODO: Add insert logic here
+        //        _context.Convocados.Add(convocadosEvento);
+        //        _context.SaveChanges();
+
+        //        //return RedirectToAction(nameof(Index));
+        //        return RedirectToAction("Index","Events",new { id="AllEvents" });
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
 
         // GET: Convocados/Edit/5

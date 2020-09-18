@@ -186,19 +186,27 @@ body {
     padding-top:inherit;    
 }
 
-.form-register{
-    width: 400px;
+.form-register {
+    width: 500px;
     background: #24303c;
-    padding: 30px;
-    margin:auto;
+    padding: 50px;
+    /*margin:auto;*/
+    /*margin-left: 600px;*/
+    margin: auto;
     margin-top: 100px;
-    border-radius:4px;
-    font-family:'Calibri';
-    color:var(--white-color);
+    border-radius: 4px;
+    font-family: 'Calibri';
+    color: var(--white-color);
     box-shadow: 7px 13px 37px var(--deepskyblue-color);
 }
 
-.controls{
+.form-register h1{
+    padding:10px;
+    text-align:center;
+
+}
+
+    .controls{
     width:100%;
     background:var(--darkblue-color);
     padding:10px;
@@ -220,6 +228,7 @@ body {
 .form-register a{
     color:var(--white-color);
     text-decoration:none;
+    font-size:15px;
 }
 
 .form-register a:hover {

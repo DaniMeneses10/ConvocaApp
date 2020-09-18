@@ -8,6 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="~/js/eventsDetails.js"></script>
+<script src="~/js/participarEnEvento.js"></script>
 
 <style>
     .event_details_list label {
@@ -27,7 +28,7 @@
                 <li class="events_border">
                     <div class="event_item">
                         <img class="smallEvent_image" src="@Url.Content(@item.picture_url)" />
-                        <div id="parent-@item.Id" class="event_details_list">
+                        <for id="parent-@item.Id" class="event_details_list">
                             <h2>Deporte: @Html.DisplayFor(modelItem => item.sport_name)</h2>
                             <h3>Lugar: @Html.DisplayFor(modelItem => item.place_name)</h3>
                             <h3>Fecha: @Html.DisplayFor(modelItem => item.date)</h3>
@@ -39,19 +40,25 @@
                             <label class="controls">Costo: $@Html.DisplayFor(model => item.cost)</label>
                             <label class="controls">Forma de Pago: @Html.DisplayFor(model => item.paymment)</label>
                             @*<h4 class="eventPlus" id= "@item.Id" style="color:Highlight">Mas detalles</h4>*@
-                            <button class="eventPlus" id= "@item.Id" style="color:Highlight">Mas detalles</button>
+                            <button1 class="eventPlus" id="@item.Id" style="color:Highlight">Mas detalles</button1>
+                            <button2 class="eventPlus" id="@item.Id" style="color:Highlight" value ="Create">Participar</button2>
+
+
+
 
                             @Html.ActionLink("Participar", "Create", "Convocados", new { item.Id/* id=item.PrimaryKey */}, new { @class = "eventPlus" })
+
+
+
+
                             <a class="eventPlus" href="https://localhost:44304/Convoca/Convoca">Regresar</a>
-                        </div>
+                        </for>
                     </div>
                 </li>
             }
         </ul>
     </section>
 </body>
-
-
 
 
 

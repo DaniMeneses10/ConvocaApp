@@ -11,11 +11,13 @@ $(document).ready(function () {
         var Password = $('#password').val();
         var data = { email: Email, password: Password};
         
-        
+        debugger
 
         $.post(url, data).done(function (dataLogin) {
             console.log(dataLogin)
-            //debugger           
+
+            debugger 
+            debugger 
                         
             if (dataLogin.ok) {                
                 evt.preventDefault();
@@ -36,6 +38,8 @@ $(document).ready(function () {
     //////////////////////*//////////////
           
 });
+
+
 
 //Exitoso
 //swal(
