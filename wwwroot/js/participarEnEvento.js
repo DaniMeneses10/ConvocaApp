@@ -6,107 +6,68 @@
 
         var id = parseInt(num);
 
-        debugger
+        //debugger
 
-        console.log("Participar en evento!");
+        
 
-        debugger
+        //debugger
 
         var Event_id = 0;
         var User_id = 0;
         var data = { event_id: Event_id, user_id: User_id, Id: id };
-        var url = "https://localhost:44304/Convocados/Create" + "/" + id;
-        //var url = "https://localhost:44304/Convocados/Create";
+        //var url = "https://localhost:44304/Convocados/Create" + "/" + id;
+        var url = "https://localhost:44304/Convocados/Create";
 
-        debugger
-        $.get(url, id).done(function (dataLogin) {
-            console.log(dataLogin)
-            debugger
+        swal({
+            title: "Estas seguro que quieres participar??",
+            text: "No seas cobarde, acepta el reto",
+            type: "warning",
+            showCancelButton: true,
+            //confirmButtonColor: '#DD6B55',
+            confirmButtonColor: 'green',
+            confirmButtonText: 'Si, quiero participar',
+            cancelButtonText: "No, no quiero!",
+            cancelButtonColor: 'red'
+            //closeOnConfirm: false,
+            //closeOnCancel: false
 
-            if (dataLogin.ok) {
+        }).then(function (isConfirm) {
+                                    
+            if (isConfirm && isConfirm.value == true) {
 
-                evt.preventDefault();
+                
 
-                //swal({
-                //    title: 'Estas seguro de querer jugar??',
-                //    showDenyButton: true,
-                //    showCancelButton: true,
-                //    confirmButtonText: `Estoy seguro`,
-                //    cancelButtonText: `No mejor no`,
-                //    //denyButtonText: `No, mejor no`,                    
-                //}).then((result) => {
-                //    evt.preventDefault();
-                //    if (result.isConfirmed) {
-                //        swal('Convocado!!!', '', 'success')
-                //    } else if (result.isDenied) {
-                //        swal('Eres una gallina', '', 'info')
-                //    }
-                //})
-
-                swal({
-                    title: "Are you sure?",
-                    text: "You will not be able to recover this imaginary file!",
-                    icon: "warning",
-                    buttons: [
-                        'No, cancel it!',
-                        'Yes, I am sure!'
-                    ],
-                    dangerMode: true,
-                }).then(function (isConfirm) {
-                    if (isConfirm) {
-                        swal({
-                            title: 'Shortlisted!',
-                            text: 'Candidates are successfully shortlisted!',
-                            icon: 'success'
-                        }).then(function () {
-                            form.submit(); // <--- submit form programmatically
-                        });
-                    } else {
-                        swal("Cancelled", "Your imaginary file is safe :)", "error");
+                swal("Estas CONVOCADO", "Ha sido agreagado a este evento", "success");
+                                
+                $.post(url, data).done(function (dataLogin) {
+                    if (dataLogin.ok)
+                        window.location.href = "https://localhost:44304/Events/Index/AllEvents";
+                    else {
+                        alert("HAY UN PUTO PROBLEMA")
                     }
                 })
-
-            };
-        });
-          
+            }
+            else {
+                
+                swal("Cobarde!!!", "Es mejor que corras", "error");
+            }
+        });    
     });
 });
 
-//$(document).ready(function () {
 
-//    console.log("listos!");
+//if (dataLogin.ok) {
 
-//    $('#login').click(function (evt) {
-//        evt.preventDefault();
-
-//        var url = "https://localhost:44304/Users/Login";
-//        var Email = $('#email').val();
-//        var Password = $('#password').val();
-//        var data = { email: Email, password: Password };
+                    //Console.log("El dato llegó")
 
 
+                    //window.location.href = "https://localhost:44304/Events/Details/id";
 
-//        $.post(url, data).done(function (dataLogin) {
-//            console.log(dataLogin)
-//            //debugger           
+                    //swal({
+                    //    title: 'CONVOCADO!',
+                    //    text: 'Haz sido agregado al evento, Ganales!!!',
+                    //    icon: 'success'
+                    //})                    //debugger
 
-//            if (dataLogin.ok) {
-//                evt.preventDefault();
-//                console.log(dataLogin)
-//                //debugger
-//                window.location.href = "https://localhost:44304/convoca/index";
-//            } else {
-//                //debugger
-//                evt.preventDefault();
-//                swal(
-//                    'Oops!',
-//                    'Algo esta mal!',
-//                    'error'
-//                )
-//            }
-//        })
-//    })
-//    //////////////////////*//////////////
-
-//});
-
+                    //}
+                    //    window.location.href = "https://localhost:44304/Events/index/id";

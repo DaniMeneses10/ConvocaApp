@@ -45,26 +45,25 @@ namespace ConvocaApp.Controllers
         }
 
         // GET: Convocados/Create
-        //public IActionResult Create(int id)
-        //{
-        //    ConvocadosModel convocados = new ConvocadosModel();
-        //    return View();
+        public IActionResult Create(int id)
+        {
+            ConvocadosModel convocados = new ConvocadosModel();
+            return View();
 
-        //    return View();
+            //return View();
+        }
+
+
+                // GET: Convocados/Create
+        //public JsonResult Create(int id)
+        //{
+        //    var dataLogin = new loginOkModel();
+
+        //    dataLogin.ok = true;
+
+        //    return (Json(dataLogin));
         //}
 
-
-
-
-        // GET: Convocados/Create
-        public JsonResult Create(int id)
-        {
-            var dataLogin = new loginOkModel();
-
-            dataLogin.ok = true;
-
-            return (Json(dataLogin));
-        }
 
 
 
@@ -73,8 +72,9 @@ namespace ConvocaApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public JsonResult Create(ConvocadosModel convocados)
+        //public IActionResult Create(ConvocadosModel convocados)
         {
             var dataLogin = new loginOkModel();
 
@@ -90,23 +90,24 @@ namespace ConvocaApp.Controllers
 
                 convocadosEvento.user_id = UserIdLogueado1;
 
-                
-
-
                 // TODO: Add insert logic here
                 _context.Convocados.Add(convocadosEvento);
                 _context.SaveChanges();
 
                 dataLogin.ok = true;
                 //return RedirectToAction(nameof(Index));
-                //return RedirectToAction("Index", "Events", new { id = "AllEvents" });
+                ////return RedirectToAction("Index", "Events", new { id = "AllEvents" });
             }
             catch
             {
+                dataLogin.ok = false;
                 //return View();
             }
-            return(Json(dataLogin));
+            return (Json(dataLogin));
+            //return RedirectToAction("Index", "Events", new { id = "AllEvents" });
         }
+
+
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public IActionResult Create(ConvocadosModel convocados)
@@ -129,7 +130,7 @@ namespace ConvocaApp.Controllers
         //        _context.SaveChanges();
 
         //        //return RedirectToAction(nameof(Index));
-        //        return RedirectToAction("Index","Events",new { id="AllEvents" });
+        //        return RedirectToAction("Index", "Events", new { id = "AllEvents" });
         //    }
         //    catch
         //    {
