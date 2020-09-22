@@ -1,14 +1,11 @@
 ﻿$(document).ready(function () {
 
-    $('li').find('button2').click(function (evt) {
+    $('li').find('.participate').click(function (evt) {
         evt.preventDefault();
         var num = this.id;
+        num = num.substr(12); //Quita el String, solo devuelve ID
 
         var id = parseInt(num);
-
-        //debugger
-
-        
 
         //debugger
 
@@ -40,6 +37,7 @@
                 swal("Estas CONVOCADO", "Ha sido agreagado a este evento", "success");
                                 
                 $.post(url, data).done(function (dataLogin) {
+                    datlogin.preventDefault();
                     if (dataLogin.ok)
                         window.location.href = "https://localhost:44304/Events/Index/AllEvents";
                     else {

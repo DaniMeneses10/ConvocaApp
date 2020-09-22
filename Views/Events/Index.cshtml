@@ -40,18 +40,18 @@
                             <label class="controls">Costo: $@Html.DisplayFor(model => item.cost)</label>
                             <label class="controls">Forma de Pago: @Html.DisplayFor(model => item.paymment)</label>
                             @*<h4 class="eventPlus" id= "@item.Id" style="color:Highlight">Mas detalles</h4>*@
-                            <button1 class="eventPlus" id="@item.Id" style="color:Highlight">Mas detalles</button1>
-                            <button2 class="eventPlus" id="@item.Id" style="color:Highlight" value ="Create">Participar</button2>
+                            <button  class="eventPlus details" id="details-@item.Id" style="color:Highlight">Mas detalles</button>
+                            <button class="eventPlus participate" id="participate-@item.Id" style="color:Highlight" value ="Create">Participar</button>
 
 
 
 
-                            @Html.ActionLink("Participar", "Create", "Convocados", new { item.Id/* id=item.PrimaryKey */}, new { @class = "eventPlus" })
+                            @*@Html.ActionLink("Participar", "Create", "Convocados", new { item.Id/* id=item.PrimaryKey */}, new { @class = "eventPlus" })*@
 
 
 
 
-                            <a class="eventPlus" href="https://localhost:44304/Convoca/Convoca">Regresar</a>
+                            <button class="eventPlus" href="https://localhost:44304/Convoca/Convoca">Regresar</button>
                         </for>
                     </div>
                 </li>

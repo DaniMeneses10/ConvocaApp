@@ -54,25 +54,12 @@ namespace ConvocaApp.Controllers
         }
 
 
-                // GET: Convocados/Create
-        //public JsonResult Create(int id)
-        //{
-        //    var dataLogin = new loginOkModel();
-
-        //    dataLogin.ok = true;
-
-        //    return (Json(dataLogin));
-        //}
-
-
-
-
-
         // POST: Convocados/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
+        [Authorize]
         public JsonResult Create(ConvocadosModel convocados)
         //public IActionResult Create(ConvocadosModel convocados)
         {
