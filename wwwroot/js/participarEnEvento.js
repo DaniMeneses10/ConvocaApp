@@ -15,6 +15,42 @@
         //var url = "https://localhost:44304/Convocados/Create" + "/" + id;
         var url = "https://localhost:44304/Convocados/Create";
 
+
+        var request = $.ajax({
+            type: "post",
+            url: "https://localhost:44304/Convocados/Create",
+            dataType: "json",
+            //data: { event_id: Event_id, user_id: User_id, Id: id },
+            statusCode: {
+                401: function () {                    
+                    console.log("Registrate caballo");
+                    evt.preventDefault();
+                    swal({
+                        type: 'info',
+                        title: 'Oops...Debes crear tu cuenta',
+                        text: 'Se el mejor!!!',
+                        showCancelButton: true,
+                        confirmButtonColor: 'green',
+                        confirmButtonText: 'Si, quiero crearla',
+                        cancelButtonText: "No, no quiero!",
+                        cancelButtonColor: 'red'
+                    }).then(function (isConfirm) {
+
+                        if (isConfirm && isConfirm.value == true) {
+                            window.location.href = "https://localhost:44304/Users/Create";
+                        }
+                        else {
+                            swal("Cobarde!!!", "Es mejor que corras", "error");
+                        }
+                    });
+                }                
+            }
+            //success: function () {
+            //    console.log("a Jugar")
+            //    debugger
+            //}
+        });  
+
         swal({
             title: "Estas seguro que quieres participar??",
             text: "No seas cobarde, acepta el reto",
@@ -29,13 +65,11 @@
             //closeOnCancel: false
 
         }).then(function (isConfirm) {
-                                    
+
             if (isConfirm && isConfirm.value == true) {
 
-                
-
                 swal("Estas CONVOCADO", "Ha sido agreagado a este evento", "success");
-                                
+
                 $.post(url, data).done(function (dataLogin) {
                     datlogin.preventDefault();
                     if (dataLogin.ok)
@@ -46,26 +80,64 @@
                 })
             }
             else {
-                
+
                 swal("Cobarde!!!", "Es mejor que corras", "error");
             }
-        });    
+        }); 
     });
 });
 
+//swal({
+//    title: "Estas seguro que quieres participar??",
+//    text: "No seas cobarde, acepta el reto",
+//    type: "warning",
+//    showCancelButton: true,
+//    //confirmButtonColor: '#DD6B55',
+//    confirmButtonColor: 'green',
+//    confirmButtonText: 'Si, quiero participar',
+//    cancelButtonText: "No, no quiero!",
+//    cancelButtonColor: 'red'
+//    //closeOnConfirm: false,
+//    //closeOnCancel: false
 
-//if (dataLogin.ok) {
+//}).then(function (isConfirm) {
 
-                    //Console.log("El dato llegó")
+//    if (isConfirm && isConfirm.value == true) {
+
+//        swal("Estas CONVOCADO", "Ha sido agreagado a este evento", "success");
+
+//        $.post(url, data).done(function (dataLogin) {
+//            datlogin.preventDefault();
+//            if (dataLogin.ok)
+//                window.location.href = "https://localhost:44304/Events/Index/AllEvents";
+//            else {
+//                alert("HAY UN PUTO PROBLEMA")
+//            }
+//        })
+//    }
+//    else {
+
+//        swal("Cobarde!!!", "Es mejor que corras", "error");
+//    }
+//}); 
 
 
-                    //window.location.href = "https://localhost:44304/Events/Details/id";
 
-                    //swal({
-                    //    title: 'CONVOCADO!',
-                    //    text: 'Haz sido agregado al evento, Ganales!!!',
-                    //    icon: 'success'
-                    //})                    //debugger
 
-                    //}
-                    //    window.location.href = "https://localhost:44304/Events/index/id";
+
+
+        //console.log(request);
+        ////debugger       
+
+        //request.fail(
+        //    function () {
+        //        evt.preventDefault();
+        //        swal({
+        //            icon: 'sad',
+        //            title: 'Oops...Debes crear tu cuenta',
+        //            text: 'Se el mejor!!!'                    
+        //        })
+
+        //        //alert("Oops, something went wrong!");
+        //        window.location.href = "https://localhost:44304/Users/Create"
+        //});

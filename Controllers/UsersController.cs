@@ -133,14 +133,6 @@ namespace ConvocaApp.Controllers
             return RedirectToAction("Convoca", "Convoca");
         }
 
-        public ActionResult TraerEventos()
-        {
-            var a = _context.Eventos.ToList();
-
-            //FormsAuthentication.SignOut();
-            return Json(a);
-        }
-
 
         ///
         ///

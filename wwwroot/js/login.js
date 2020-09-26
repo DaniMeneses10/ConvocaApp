@@ -11,13 +11,10 @@ $(document).ready(function () {
         var Password = $('#password').val();
         var data = { email: Email, password: Password};
         
-        debugger
-
+     
         $.post(url, data).done(function (dataLogin) {
             console.log(dataLogin)
 
-            debugger 
-            debugger 
                         
             if (dataLogin.ok) {                
                 evt.preventDefault();
@@ -34,25 +31,7 @@ $(document).ready(function () {
                 )
             }
         })
-    })
-    //////////////////////*//////////////
-          
+    }) 
 });
 
 
-
-//Exitoso
-//swal(
-//    'Good job!',
-//    'You clicked the button!',
-//    'success'
-//)
-
-
-//Wroooooong
-//Swal.fire({
-//    icon: 'error',
-//    title: 'Oops...',
-//    text: 'Something went wrong!',
-//    footer: '<a href>Why do I have this issue?</a>'
-//})

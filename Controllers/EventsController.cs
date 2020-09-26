@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ConvocaApp.Data;
 using ConvocaApp.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ConvocaApp.Controllers
 {
@@ -313,5 +314,97 @@ namespace ConvocaApp.Controllers
                 return View();
             }
         }
+
+
+        public IActionResult MyEvents(string id)
+        {
+
+            var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
+            var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
+
+            var eventosConvocados = _context.Convocados.ToList<ConvocadosModel>();
+
+            var MisEventos = eventosConvocados.Where(x => x.event_id == UserIdLogueado1).ToList();
+
+            //var evenConvocadosVMlist = new List<EventsViewModel>().Where(eventosConvocados.event_id == UserIdLogueado1);
+
+            return View();
+        }
     }
 }
+
+
+//var eventos = _context.Eventos.ToList<EventsModel>();
+
+//var eventosVMlist = new List<EventsViewModel>();
+//foreach (var evento in eventos)
+
+//{
+//    var eventoVM = new EventsViewModel();
+//    eventoVM.category = evento.category;
+//    eventoVM.sex = evento.sex;
+//    eventoVM.date = evento.date;
+//    eventoVM.hour = evento.hour;
+//    eventoVM.minute = evento.minute;
+//    eventoVM.meridian = evento.meridian;
+//    eventoVM.Id = evento.Id;
+
+//    eventoVM.time = evento.hour + " : " + evento.minute + " - " + evento.meridian;
+//    eventoVM.time = evento.time;
+
+//    eventoVM.reserve = evento.reserve;
+//    eventoVM.cost = evento.cost;
+//    eventoVM.paymment = evento.paymment;
+
+//    eventoVM.place_id = evento.place_id;
+//    var lugarEvento = _context.Lugares.Find(evento.place_id);
+//    eventoVM.place_name = lugarEvento.name;
+
+//    eventoVM.sport_id = evento.sport_id;
+//    var deporteEvento = _context.Deportes.Find(evento.sport_id);
+//    eventoVM.sport_name = deporteEvento.name;
+
+//    string picture_url;
+
+//    switch (eventoVM.sport_name)
+//    {
+//        case "Baloncesto":
+//            picture_url = "~/asset/images/baloncesto.jpg";
+//            break;
+//        case "Futbol":
+//            picture_url = "~/asset/images/futbol.jpg";
+//            break;
+//        case "Tenis":
+//            picture_url = "~/asset/images/tenis.jpg";
+//            break;
+//        case "Atletismo":
+//            picture_url = "~/asset/images/atletismo.jpg";
+//            break;
+//        case "Ciclismo":
+//            picture_url = "~/asset/images/ciclismo.jpg";
+//            break;
+//        default:
+//            picture_url = "Sin Imagenes para mostrar";
+//            break;
+//    }
+
+//    eventoVM.picture_url = picture_url;
+
+
+//    if (id == eventoVM.sport_name)
+//    {
+//        eventosVMlist.Add(eventoVM);
+//    }
+//    else if (id == "AllEvents")
+//    {
+//        eventosVMlist.Add(eventoVM);
+//    }
+//    else if (id == null)
+//    {
+//        //return RedirectToAction("Events", "Index");
+//        return RedirectToAction("Convoca", "Convoca");
+
+//    }
+
+//}
+//return View(eventosVMlist);            

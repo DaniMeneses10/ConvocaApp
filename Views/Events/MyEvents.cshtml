@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ConvocaApp.Models.EventsViewModel>
+﻿@model IEnumerable<ConvocaApp.Models.MyEventsViewModel>
 
 
 @{
@@ -17,10 +17,66 @@
 </style>
 
 <section class="header_login">
-    <h1>Lista de Eventos</h1>
+    <h1>Mis Eventos</h1>
 </section>
 
+
 <body>
+    <section class="events_list">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li class="events_border">
+                    <div class="event_item">
+                        <img class="smallEvent_image" src="@Url.Content(@item.picture_url)" />
+                        <for id="parent-@item.Id" class="event_details_list">
+                            <h2>Deporte: @Html.DisplayFor(modelItem => item.sport_name)</h2>
+                            <h3>Lugar: @Html.DisplayFor(modelItem => item.place_name)</h3>
+                            <h3>Fecha: @Html.DisplayFor(modelItem => item.date)</h3>
+
+                            <label class="controls">Hora: @Html.DisplayFor(model => item.time)</label>
+                            <label class="controls">Categoria: @Html.DisplayFor(model => item.category)</label>
+                            <label class="controls">Generó: @Html.DisplayFor(model => item.sex)</label>
+                            <label class="controls">Reservación: @Html.DisplayFor(model => item.reserve)</label>
+                            <label class="controls">Costo: $@Html.DisplayFor(model => item.cost)</label>
+                            <label class="controls">Forma de Pago: @Html.DisplayFor(model => item.paymment)</label>
+                            <button class="eventPlus details" id="details-@item.Id" style="color:Highlight">Mas detalles</button>
+                            @*<button class="eventPlus participate" type="button" id="participate-@item.Id" style="color:Highlight" value="Create">Participar</button>*@
+                            <a class="eventPlus" href="https://localhost:44304/Convoca/Convoca">Regresar</a>
+                        </for>
+                    </div>
+                </li>
+            }
+        </ul>
+    </section>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<body>
     <section class="events_list">
         <ul>
             @foreach (var item in Model)
@@ -48,7 +104,7 @@
             }
         </ul>
     </section>
-</body>
+</body>*@
 
 
 
