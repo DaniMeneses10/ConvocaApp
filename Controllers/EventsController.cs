@@ -22,9 +22,9 @@ namespace ConvocaApp.Controllers
         }
 
         // GET: Events
-  
+
         public IActionResult Index(string id)
-        {          
+        {
 
             var eventos = _context.Eventos.ToList<EventsModel>();
 
@@ -78,20 +78,20 @@ namespace ConvocaApp.Controllers
                     default:
                         picture_url = "Sin Imagenes para mostrar";
                         break;
-                }  
-                
+                }
+
                 eventoVM.picture_url = picture_url;
 
 
-                if(id == eventoVM.sport_name)
+                if (id == eventoVM.sport_name)
                 {
                     eventosVMlist.Add(eventoVM);
                 }
-                else if(id == "AllEvents")
+                else if (id == "AllEvents")
                 {
                     eventosVMlist.Add(eventoVM);
-                }    
-                else if(id == null)
+                }
+                else if (id == null)
                 {
                     //return RedirectToAction("Events", "Index");
                     return RedirectToAction("Convoca", "Convoca");
@@ -114,7 +114,7 @@ namespace ConvocaApp.Controllers
         // GET: Events/Details/5
         public IActionResult Details(int id)
         {
-           
+
             var evento = _context.Eventos.Find(id);
 
             var eventoVM = new EventsViewModel();
@@ -210,9 +210,9 @@ namespace ConvocaApp.Controllers
                 eventoVM.place_id = evento.place_id;
                 eventoVM.sport_id = evento.sport_id;
 
-                eventoVM.time = evento.hour + " : " + evento.minute + " - " + evento.meridian;               
+                eventoVM.time = evento.hour + " : " + evento.minute + " - " + evento.meridian;
 
-                
+
                 // TODO: Add insert logic here
                 _context.Eventos.Add(eventoVM);
                 _context.SaveChanges();
@@ -249,7 +249,7 @@ namespace ConvocaApp.Controllers
             {
                 var eventoVM = _context.Eventos.Find(id);
 
-                if(eventoVM != null)
+                if (eventoVM != null)
                 {
                     eventoVM.category = datosUpdate.category;
                     eventoVM.sex = datosUpdate.sex;
@@ -271,7 +271,7 @@ namespace ConvocaApp.Controllers
                     return RedirectToAction(nameof(Index));
                 }
                 else
-            
+
                     return NotFound();
                 // TODO: Add update logic here                
             }
@@ -294,7 +294,7 @@ namespace ConvocaApp.Controllers
         // POST: Events/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete (int id)
+        public IActionResult Delete(int id)
         {
             try
             {
@@ -315,20 +315,40 @@ namespace ConvocaApp.Controllers
             }
         }
 
-
+        [Authorize]
         public IActionResult MyEvents(string id)
-        {
+        {           
 
             var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
             var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
 
             var eventosConvocados = _context.Convocados.ToList<ConvocadosModel>();
+            
+            var MisEventosList = new List<ConvocadosModel>();
 
-            var MisEventos = eventosConvocados.Where(x => x.event_id == UserIdLogueado1).ToList();
+            foreach(var evento in eventosConvocados)
+            {
+                var misEventos = new ConvocadosModel();
+                misEventos.event_id = evento.event_id;
+                misEventos.user_id = evento.user_id;
+                misEventos.Id = evento.Id;
 
-            //var evenConvocadosVMlist = new List<EventsViewModel>().Where(eventosConvocados.event_id == UserIdLogueado1);
+                if(UserIdLogueado1 == misEventos.user_id)
+                {
+                    MisEventosList.Add(misEventos);// Lista de todos mis eventos donde estoy convocado
+                }
+            }
+
+            foreach (var item in MisEventosList)
+            {
+                var eventsID = Array
+
+            }
+
+
 
             return View();
+            
         }
     }
 }

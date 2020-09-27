@@ -30,7 +30,6 @@ namespace ConvocaApp.Controllers
         {
             var a = User;
             var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
-
             var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
 
             var usuario = _context.Usuarios.Where(x => x.Id == UserIdLogueado1).FirstOrDefault();
