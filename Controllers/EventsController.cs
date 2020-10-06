@@ -9,6 +9,8 @@ using ConvocaApp.Data;
 using ConvocaApp.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace ConvocaApp.Controllers
 {
@@ -317,33 +319,39 @@ namespace ConvocaApp.Controllers
 
         [Authorize]
         public IActionResult MyEvents(string id)
-        {           
+        {
 
             var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
             var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
 
-            var eventosConvocados = _context.Convocados.ToList<ConvocadosModel>();
-            
-            var MisEventosList = new List<ConvocadosModel>();
+            //var user = new SqlParameter("user", UserIdLogueado1);
 
-            foreach(var evento in eventosConvocados)
-            {
-                var misEventos = new ConvocadosModel();
-                misEventos.event_id = evento.event_id;
-                misEventos.user_id = evento.user_id;
-                misEventos.Id = evento.Id;
+            var EventosList = _context.Eventos.ToArray();
+                
+            //var ConvocadosList = _context.Convocados.ToList();
+            var ConvocadosList = _context.Convocados.FromSqlRaw($"SELECT * FROM Convocados WHERE Convocados.user_id = {UserIdLogueado1}" ).ToArray();
 
-                if(UserIdLogueado1 == misEventos.user_id)
-                {
-                    MisEventosList.Add(misEventos);// Lista de todos mis eventos donde estoy convocado
-                }
-            }
+            var query =
+                from convocado in ConvocadosList
+                join evento in EventosList
+                on convocado.event_id equals evento.Id
+                //where convocado.user_id == 1107
+                where convocado.user_id == UserIdLogueado1
+                select new { Convocado = convocado, Evento = evento };
 
-            foreach (var item in MisEventosList)
-            {
-                var eventsID = Array
 
-            }
+
+            Console.WriteLine(query);
+            Console.WriteLine("Hola");
+
+
+
+
+
+            //SELECT * FROM Convocados INNER JOIN Eventos ON Convocados.event_id = Eventos.Id WHERE Convocados.user_id=1107
+
+
+
 
 
 
