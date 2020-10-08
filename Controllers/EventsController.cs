@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Internal;
 
+
 namespace ConvocaApp.Controllers
 {
     public class EventsController : Controller
@@ -324,115 +325,82 @@ namespace ConvocaApp.Controllers
             var UserIdLogueado = User.Claims.FirstOrDefault(c => c.Type == "UserId");
             var UserIdLogueado1 = Convert.ToInt32(UserIdLogueado.Value);
 
-            //var user = new SqlParameter("user", UserIdLogueado1);
+            var EventosList = _context.Eventos.ToList();
+            var ConvocadosList = _context.Convocados.FromSqlRaw($"SELECT * FROM Convocados WHERE Convocados.user_id = {UserIdLogueado1}").ToList();
 
-            var EventosList = _context.Eventos.ToArray();
-                
-            //var ConvocadosList = _context.Convocados.ToList();
-            var ConvocadosList = _context.Convocados.FromSqlRaw($"SELECT * FROM Convocados WHERE Convocados.user_id = {UserIdLogueado1}" ).ToArray();
 
             var query =
-                from convocado in ConvocadosList
+                (from convocado in ConvocadosList
                 join evento in EventosList
                 on convocado.event_id equals evento.Id
                 //where convocado.user_id == 1107
                 where convocado.user_id == UserIdLogueado1
-                select new { Convocado = convocado, Evento = evento };
+                //select new { Evento = evento };
+                //select new { Convocado = convocado, Evento = evento };
+                select new { Evento = evento }).ToList();
 
 
+            var eventosVMlist = new List<MyEventsViewModel>();
+            foreach (var miEevento in query)
 
-            Console.WriteLine(query);
-            Console.WriteLine("Hola");
+            {
+                var eventoVM = new MyEventsViewModel();
+                eventoVM.category = miEevento.Evento.category;
+                eventoVM.sex = miEevento.Evento.sex;
+                eventoVM.date = miEevento.Evento.date;
+                eventoVM.hour = miEevento.Evento.hour;
+                eventoVM.minute = miEevento.Evento.minute;
+                eventoVM.meridian = miEevento.Evento.meridian;
+                eventoVM.Id = miEevento.Evento.Id;
 
+                eventoVM.time = miEevento.Evento.hour + " : " + miEevento.Evento.minute + " - " + miEevento.Evento.meridian;
+                eventoVM.time = miEevento.Evento.time;
 
+                eventoVM.reserve = miEevento.Evento.reserve;
+                eventoVM.cost = miEevento.Evento.cost;
+                eventoVM.paymment = miEevento.Evento.paymment;
 
+                eventoVM.place_id = miEevento.Evento.place_id;
+                var lugarEvento = _context.Lugares.Find(miEevento.Evento.place_id);
+                eventoVM.place_name = lugarEvento.name;
 
+                eventoVM.sport_id = miEevento.Evento.sport_id;
+                var deporteEvento = _context.Deportes.Find(miEevento.Evento.sport_id);
+                eventoVM.sport_name = deporteEvento.name;
 
-            //SELECT * FROM Convocados INNER JOIN Eventos ON Convocados.event_id = Eventos.Id WHERE Convocados.user_id=1107
+                string picture_url;
 
+                switch (eventoVM.sport_name)
+                {
+                    case "Baloncesto":
+                        picture_url = "~/asset/images/baloncesto.jpg";
+                        break;
+                    case "Futbol":
+                        picture_url = "~/asset/images/futbol.jpg";
+                        break;
+                    case "Tenis":
+                        picture_url = "~/asset/images/tenis.jpg";
+                        break;
+                    case "Atletismo":
+                        picture_url = "~/asset/images/atletismo.jpg";
+                        break;
+                    case "Ciclismo":
+                        picture_url = "~/asset/images/ciclismo.jpg";
+                        break;
+                    default:
+                        picture_url = "Sin Imagenes para mostrar";
+                        break;
+                }
 
+                eventoVM.picture_url = picture_url;
 
+                eventosVMlist.Add(eventoVM);
 
+            }
 
-
-            return View();
-            
+            return View(eventosVMlist);     
+           
         }
     }
 }
 
-
-//var eventos = _context.Eventos.ToList<EventsModel>();
-
-//var eventosVMlist = new List<EventsViewModel>();
-//foreach (var evento in eventos)
-
-//{
-//    var eventoVM = new EventsViewModel();
-//    eventoVM.category = evento.category;
-//    eventoVM.sex = evento.sex;
-//    eventoVM.date = evento.date;
-//    eventoVM.hour = evento.hour;
-//    eventoVM.minute = evento.minute;
-//    eventoVM.meridian = evento.meridian;
-//    eventoVM.Id = evento.Id;
-
-//    eventoVM.time = evento.hour + " : " + evento.minute + " - " + evento.meridian;
-//    eventoVM.time = evento.time;
-
-//    eventoVM.reserve = evento.reserve;
-//    eventoVM.cost = evento.cost;
-//    eventoVM.paymment = evento.paymment;
-
-//    eventoVM.place_id = evento.place_id;
-//    var lugarEvento = _context.Lugares.Find(evento.place_id);
-//    eventoVM.place_name = lugarEvento.name;
-
-//    eventoVM.sport_id = evento.sport_id;
-//    var deporteEvento = _context.Deportes.Find(evento.sport_id);
-//    eventoVM.sport_name = deporteEvento.name;
-
-//    string picture_url;
-
-//    switch (eventoVM.sport_name)
-//    {
-//        case "Baloncesto":
-//            picture_url = "~/asset/images/baloncesto.jpg";
-//            break;
-//        case "Futbol":
-//            picture_url = "~/asset/images/futbol.jpg";
-//            break;
-//        case "Tenis":
-//            picture_url = "~/asset/images/tenis.jpg";
-//            break;
-//        case "Atletismo":
-//            picture_url = "~/asset/images/atletismo.jpg";
-//            break;
-//        case "Ciclismo":
-//            picture_url = "~/asset/images/ciclismo.jpg";
-//            break;
-//        default:
-//            picture_url = "Sin Imagenes para mostrar";
-//            break;
-//    }
-
-//    eventoVM.picture_url = picture_url;
-
-
-//    if (id == eventoVM.sport_name)
-//    {
-//        eventosVMlist.Add(eventoVM);
-//    }
-//    else if (id == "AllEvents")
-//    {
-//        eventosVMlist.Add(eventoVM);
-//    }
-//    else if (id == null)
-//    {
-//        //return RedirectToAction("Events", "Index");
-//        return RedirectToAction("Convoca", "Convoca");
-
-//    }
-
-//}
-//return View(eventosVMlist);            

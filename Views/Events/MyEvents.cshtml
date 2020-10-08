@@ -20,6 +20,7 @@
     <h1>Mis Eventos</h1>
 </section>
 
+<a class="eventPlus" href="https://localhost:44304/Convoca/Index">Regresar</a>
 
 <body>
     <section class="events_list">
@@ -42,12 +43,14 @@
                             <label class="controls">Forma de Pago: @Html.DisplayFor(model => item.paymment)</label>
                             <button class="eventPlus details" id="details-@item.Id" style="color:Highlight">Mas detalles</button>
                             @*<button class="eventPlus participate" type="button" id="participate-@item.Id" style="color:Highlight" value="Create">Participar</button>*@
-                            <a class="eventPlus" href="https://localhost:44304/Convoca/Convoca">Regresar</a>
+                            @*<a class="eventPlus" href="https://localhost:44304/Convoca/Index">Regresar</a>*@
                         </for>
                     </div>
                 </li>
             }
+
         </ul>
+        
     </section>
 </body>
 
